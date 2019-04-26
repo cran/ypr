@@ -33,7 +33,7 @@ sr <- function(schedule, population) {
                R0 = R0, R0F = R0F,
                S0 = S0, S0F = S0F)
   })
-  as_conditional_tibble(sr)
+  as_tibble(sr)
 }
 
 #' Stock-Recruitment Parameters
@@ -42,9 +42,9 @@ sr <- function(schedule, population) {
 #' \describe{
 #'   \item{alpha}{Survival from egg to age tR at low density}
 #'   \item{beta}{Density-dependence}
-#'   \item{Rk}{Spawners per spawner at low density}
-#'   \item{phi}{Eggs deposited at unfished equilibrium}
-#'   \item{phiF}{Eggs deposited at the fished equilibrium}
+#'   \item{Rk}{Lifetime spawners per spawner at low density}
+#'   \item{phi}{Lifetime eggs deposited per recruit at unfished equilibrium}
+#'   \item{phiF}{Lifetime eggs deposited per recruit at the fished equilibrium}
 #'   \item{R0}{Age tR recruits at the unfished equilibrium}
 #'   \item{R0F}{Age tR recruits at the fished equilibrium}
 #'   \item{S0}{Spawners at the unfished equilibrium}

@@ -1,17 +1,18 @@
 #' @export
 print.ypr_population <- function(x, ...) {
-  check_population(x)
+  suppressWarnings(check_population(x))
   nchar <- nchar(names(x))
   nchar <- max(nchar) - nchar + 1
   space <- vapply(nchar, function(x) paste0(rep(" ", times = x), collapse = ""), "")
   x <- paste0(names(x), ":", space, x, collapse = "\n")
+  x <- paste0(x, "\n", collapse = "")
   cat(x)
   invisible(x)
 }
 
 #' @export
 print.ypr_populations <- function(x, ...) {
-  check_populations(x)
+  suppressWarnings(check_populations(x))
   if(length(x) == 1) return(print(x[[1]]))
   x$FUN = c
   x <- do.call("mapply", x)
@@ -24,6 +25,7 @@ print.ypr_populations <- function(x, ...) {
   names <- names(x)
   x <- lapply(x, paste0, collapse = ", ")
   x <- paste0(names, ":", space, x, collapse = "\n")
+  x <- paste0(x, "\n", collapse = "")
   cat(x)
   invisible(x)
 }

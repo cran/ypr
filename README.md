@@ -14,6 +14,7 @@ status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.sv
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
 
 ## Introduction
 
@@ -31,7 +32,7 @@ The key life history parameters are
   - The length at which 50% mature (`Ls`)
   - The length at which 50% vulnerable to harvest (`Lv`)
   - The instantaneous annual natural mortality rate (`M`)
-  - The number of spawners per spawner at low density (`Rk`)
+  - The lifetime number of spawners per spawner at low density (`Rk`)
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
@@ -67,7 +68,7 @@ head(ypr_schedule(population))
 #> 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5
 #> 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1
 #> 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1
-#> # ... with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
+#> # … with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
 #> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
 
@@ -138,18 +139,27 @@ ypr_plot_yield(populations, plot_values = FALSE) +
 
 ## Installation
 
-To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/ypr)
+To install the latest release version from
+[CRAN](https://cran.r-project.org)
 
-    # install.packages("devtools")
-    devtools::install_github("poissonconsulting/ypr")
+    install.packages("ypr")
 
 To install the latest development version from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
 
-    # install.packages("drat")
+    if(!"drat" %in% installed.packages()[,1]) 
+      install.packages("drat")
     drat::addRepo("poissonconsulting")
     install.packages("ypr")
+
+To install the latest development version from
+[GitHub](https://github.com/poissonconsulting/rpdo)
+
+    if(!"devtools" %in% installed.packages()[,1]) 
+      install.packages("devtools")
+    devtools::install_github("poissonconsulting/err")
+    devtools::install_github("poissonconsulting/checkr")
+    devtools::install_github("poissonconsulting/ypr")
 
 ### Interaction
 
@@ -179,7 +189,7 @@ always welcome.
 
 Please note that this project is released with a [Contributor Code of
 Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms.
+abide by its terms
 
 ## References
 

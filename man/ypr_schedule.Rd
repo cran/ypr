@@ -10,13 +10,11 @@ ypr_schedule(population)
 \item{population}{An object of class \code{\link{ypr_population}}.}
 }
 \value{
-A data frame (or tibble) of the life-history schedule by age.
+A tibble of the life-history schedule by age.
 }
 \description{
 Generates the life-history schedule by age for a population.
-}
-\details{
-If the \code{tibble} package is available it returns a tibble.
+#'
 }
 \examples{
 ypr_schedule(ypr_population())

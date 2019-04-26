@@ -15,8 +15,25 @@ test_that("population", {
   expect_identical(length(populations), 1L)
   expect_identical(populations[[1]], ypr_population())
 
+  populations <- ypr_populations(Rk = c(2.5, 4.6))
+  expect_identical(length(populations), 2L)
+  expect_identical(names(populations),
+                   c("Rk_2_5", "Rk_4_6"))
+
   populations <- ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+  expect_identical(names(populations),
+                   c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2"))
   expect_identical(check_populations(populations), populations)
   expect_identical(length(populations), 4L)
   expect_identical(check_population(populations[[1]]), populations[[1]])
+
+  populations <- ypr_populations(k = 0.12, Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
+  expect_identical(names(populations),
+                   c("Rk_2_5_Hm_0_05", "Rk_4_6_Hm_0_05", "Rk_2_5_Hm_0_2", "Rk_4_6_Hm_0_2"))
+  expect_identical(check_populations(populations), populations)
+  expect_identical(length(populations), 4L)
+  expect_identical(check_population(populations[[1]]), populations[[1]])
+
+  names(populations) <- NULL
+  expect_warning(check_populations(populations), "elements of populations must be named")
 })

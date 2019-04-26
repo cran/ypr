@@ -3,14 +3,14 @@
 \docType{data}
 \name{quesnel_lt}
 \alias{quesnel_lt}
-\title{Quesnel Lake Rainbow Trout Population Parameters}
+\title{Quesnel Lake Lake Trout Population Parameters}
 \format{An object of class \code{\link{ypr_population}}.}
 \usage{
 quesnel_lt
 }
 \description{
 The population parameters for
-Rainbow Trout in Quesnel Lake, BC.
+Lake Trout in Quesnel Lake, BC.
 }
 \details{
 The estimates are liable to change and should not be used for management.

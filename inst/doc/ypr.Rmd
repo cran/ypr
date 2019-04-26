@@ -137,20 +137,22 @@ ypr_plot_schedule(population, "Length", "FishingMortality")
 
 With growth, reproduction and death defined, the final task is to estimate the recruitment (birth) rate.
 
-This requires the number of spawners per spawner at low density ($R_k$) and the recruitment age ($R_t$; by default 1) to be defined.
+This requires the lifetime number of spawners per spawner at low density ($R_k$) and the recruitment age ($R_t$; by default 1) to be defined.
 
 If recruitment follows a Beverton-Holt ($BH = 1$) curve then
 
-$$R = \alpha \cdot S / (\beta \cdot S + 1)$$
+$$R = \alpha \cdot E / (\beta \cdot E + 1)$$
 
 ```{r}
 population <- ypr_population_update(population, Rk = 3)
 ypr_plot_sr(population, plot_values = FALSE)
 ```
 
-otherwise with a Ricker curve ($BH = 0$)
+where $E$ is the annual eggs (stock) and $R$ is the annual recruits at age $R_t$.
 
-$$R = \alpha \cdot S \cdot \exp (-\beta \cdot S)$$
+With a Ricker curve ($BH = 0$) the relationship is as follows
+
+$$R = \alpha \cdot E \cdot \exp (-\beta \cdot E)$$
 
 ```{r}
 population <- ypr_population_update(population, BH = 0L)
@@ -174,17 +176,22 @@ And the fished survivorship ($lx_a^F$) is
 
 $$lx_{R_t}^F = 1, lx_a^F = lx_{a-1}^F \cdot (1 - (1 - N_{a-1}) \cdot (1 - U_{a-1})) \;\text{for}\; a > R_t$$
 
-The number of eggs deposited per (unfished) recruit ($\phi$) is then just
+The lifetime number of eggs deposited per (unfished) recruit ($\phi$) is then just
 
-$$\phi = \sum_{a = R_t}^{t_\text{max}} lx_a \cdot F \cdot S/2$$
-where $t_\text{max}$ is the maximum age considered (by default `r ypr_population()$tmax`) and $S$ is divided by two as the sex ratio is assumed to 1:1.
+$$\phi = \sum_{a = R_t}^{t_\text{max}} lx_a \cdot F_a/2 \cdot S_a$$
+where $t_\text{max}$ is the maximum age considered (by default `r ypr_population()$tmax`) and $F_a$ the fecundity at age $a$ is divided by two as the sex ratio is assumed to 1:1 and $S_a$ is the probability of spawning.
 
 The fished equivalent is denoted $\phi_F$.
 
-By definition 
-$$\alpha = \frac{R_k}{\phi}$$
+It important to realize that at the unfished equilibrium the annual number of recruits ($R_0$) is related to the annual egg deposition according to the following equation
 
-The value of $\beta$ for the Beverton-Holt curve can be found by rearranging the following formula where $R_0$ is the number of recruits at the unfished equilibrium.
+$$E_0 = \phi \cdot R_0$$
+
+By definition
+
+$$\alpha = \frac{R_k \cdot R_0}{E_0} = \frac{R_k}{\phi}$$
+
+The $\beta$ term of the Beverton-Holt curve can then be found by rearranging the following formula 
 
 $$R_0 = \frac{\alpha \cdot \phi \cdot R_0}{\beta \cdot \phi \cdot R_0 + 1}$$
 

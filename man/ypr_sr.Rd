@@ -17,9 +17,9 @@ Returns a single rowed data frame of the SR parameters:
 \describe{
   \item{alpha}{Survival from egg to age tR at low density}
   \item{beta}{Density-dependence}
-  \item{Rk}{Spawners per spawner at low density}
-  \item{phi}{Eggs deposited at unfished equilibrium}
-  \item{phiF}{Eggs deposited at the fished equilibrium}
+  \item{Rk}{Lifetime spawners per spawner at low density}
+  \item{phi}{Lifetime eggs deposited per recruit at unfished equilibrium}
+  \item{phiF}{Lifetime eggs deposited per recruit at the fished equilibrium}
   \item{R0}{Age tR recruits at the unfished equilibrium}
   \item{R0F}{Age tR recruits at the fished equilibrium}
   \item{S0}{Spawners at the unfished equilibrium}

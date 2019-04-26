@@ -35,7 +35,7 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{BH}{Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.}
 
-\item{Rk}{The spawners per spawner or if less than 1 the egg to age tR survival at low density.}
+\item{Rk}{The lifetime spawners per spawner at low density.}
 
 \item{M}{The instantaneous mortality rate (per yr).}
 

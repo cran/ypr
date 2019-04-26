@@ -1,4 +1,4 @@
-#' Adams Lake Bull Trout Population Parameters
+#' Adams Lake Bull Trout Population Parameters (2003)
 #'
 #' The population parameters for
 #' Bull Trout in Adams Lake from Bison et al (2003)
@@ -9,7 +9,7 @@
 #' ypr_plot_yield(adams_bt_03)
 "adams_bt_03"
 
-#' Chilliwack Lake Bull Trout Populations Parameters
+#' Chilliwack Lake Bull Trout Populations Parameters (2005)
 #'
 #' The populations parameters for
 #' Bull Trout in Chilliwack Lake from Taylor (2005)
@@ -84,10 +84,10 @@
 #' ypr_plot_yield(quesnel_bt)
 "quesnel_bt"
 
-#' Quesnel Lake Lake Trout Population Parameters
+#' Quesnel Lake Rainbow Trout Population Parameters
 #'
 #' The population parameters for
-#' Lake Trout in Quesnel Lake, BC.
+#' Rainbow Trout in Quesnel Lake, BC.
 #'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.
@@ -96,10 +96,10 @@
 #' ypr_plot_yield(quesnel_rb)
 "quesnel_rb"
 
-#' Quesnel Lake Rainbow Trout Population Parameters
+#' Quesnel Lake Lake Trout Population Parameters
 #'
 #' The population parameters for
-#' Rainbow Trout in Quesnel Lake, BC.
+#' Lake Trout in Quesnel Lake, BC.
 #'
 #' The estimates are liable to change and should not be used for management.
 #' @format An object of class \code{\link{ypr_population}}.

@@ -14,7 +14,7 @@
 #' @param fb The fecundity (as a function of weight) scaling exponent.
 #' @param tR The age from which survival is density-independent (yr).
 #' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
-#' @param Rk The spawners per spawner or if less than 1 the egg to age tR survival at low density.
+#' @param Rk The lifetime spawners per spawner at low density.
 #' @param M The instantaneous mortality rate (per yr).
 #' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
 #' @param Lv The length at which 50\% vulnerable to harvest (cm).
@@ -102,6 +102,7 @@ ypr_populations <- function(...) {
     attr(population,"out.attrs") <- NULL
     populations[[i]] <- do.call("ypr_population", population)
   }
+  names(populations) <- population_names(parameters)
   class(populations) <- "ypr_populations"
   populations
 }

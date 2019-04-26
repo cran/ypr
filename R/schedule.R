@@ -1,12 +1,10 @@
 #' Life-History Schedule
 #'
 #' Generates the life-history schedule by age for a population.
-#'
-#' If the \code{tibble} package is available it returns a tibble.
-#'
+#'#'
 #' @inheritParams ypr_yield
 #' @param population An object of class \code{\link{ypr_population}}.
-#' @return A data frame (or tibble) of the life-history schedule by age.
+#' @return A tibble of the life-history schedule by age.
 #' @seealso \code{\link{ypr_population}}
 #' @export
 #' @examples
@@ -43,5 +41,5 @@ ypr_schedule <- function(population) {
                FishedSurvivorship = FishedSurvivorship)
   })
 
-  as_conditional_tibble(schedule)
+  as_tibble(schedule)
 }

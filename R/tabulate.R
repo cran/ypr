@@ -64,7 +64,7 @@ ypr_tabulate_parameters <- function(population) {
 
   parameters <- merge(parameters, data, by = "Parameter", sort = FALSE)
 
-  as_conditional_tibble(parameters)
+  as_tibble(parameters)
 }
 
 #' Detabulate Parameters
@@ -135,7 +135,7 @@ ypr_tabulate_fish <- function(population, x = "Age", binwidth = 1L) {
   table <- do.call("rbind", table)
   row.names(table) <- NULL
 
-  as_conditional_tibble(table)
+  as_tibble(table)
 }
 
 #' Stock-Recruitment Parameters
@@ -175,7 +175,7 @@ ypr_tabulate_sr.ypr_population <- function(object, Ly = 0, harvest = TRUE,
 
   if(all) table <- add_parameters(table, object)
 
-  as_conditional_tibble(table)
+  as_tibble(table)
 }
 
 #' Stock-Recruitment Parameters
@@ -199,7 +199,7 @@ ypr_tabulate_sr.ypr_populations <- function(object, Ly = 0, harvest = TRUE, biom
 
   if(!all) sr <- drop_constant_parameters(sr)
 
-  as_conditional_tibble(sr)
+  as_tibble(sr)
 }
 
 #' Tabulate Yield
@@ -258,7 +258,7 @@ ypr_tabulate_yield.ypr_population <- function(object, Ly = 0, harvest = TRUE, bi
 
   if(all) yield <- add_parameters(yield, object)
 
-  as_conditional_tibble(yield)
+  as_tibble(yield)
 }
 
 #' Tabulate Yield
@@ -284,7 +284,7 @@ ypr_tabulate_yield.ypr_populations <- function(object, Ly = 0, harvest = TRUE, b
 
   if(!all) yield <- drop_constant_parameters(yield)
 
-  as_conditional_tibble(yield)
+  as_tibble(yield)
 }
 
 #' Tabulate Yields
@@ -308,7 +308,7 @@ ypr_tabulate_yields.ypr_population <- function(object, pi = seq(0, 1, length.out
 
   yields <- do.call(rbind, yields)
 
-  as_conditional_tibble(yields)
+  as_tibble(yields)
 }
 
 #' Tabulate Yields
@@ -335,5 +335,5 @@ ypr_tabulate_yields.ypr_populations <- function(object, pi = seq(0, 1, length.ou
 
   if(!all) yield <- drop_constant_parameters(yield)
 
-  as_conditional_tibble(yield)
+  as_tibble(yield)
 }
