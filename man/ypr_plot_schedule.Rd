@@ -7,7 +7,7 @@
 ypr_plot_schedule(population, x = "Age", y = "Length")
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{x}{A string of the term on the x-axis.}
 
@@ -23,5 +23,5 @@ Produces a bivariate line plot of two schedule terms.
 ypr_plot_schedule(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_schedule}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}}
 }

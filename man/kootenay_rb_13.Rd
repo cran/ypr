@@ -4,7 +4,7 @@
 \name{kootenay_rb_13}
 \alias{kootenay_rb_13}
 \title{Kootenay Lake Rainbow Trout Population Parameters (2013)}
-\format{An object of class \code{\link{ypr_population}}.}
+\format{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 \usage{
 kootenay_rb_13
 }
@@ -23,6 +23,6 @@ ypr_plot_yield(kootenay_rb_13)
 Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
 }
 \seealso{
-\code{\link{kootenay_rb}}
+\code{\link[=kootenay_rb]{kootenay_rb()}}
 }
 \keyword{datasets}

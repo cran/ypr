@@ -4,24 +4,58 @@
 \alias{ypr_population}
 \title{Population Parameters}
 \usage{
-ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
-  Ls = Linf/2, Sp = 100, es = 1, Sm = 0, fb = 1, tR = 1L,
-  BH = 1L, Rk = 3, M = 0.2, Mb = 0, Lv = Linf/2, Vp = 100,
-  Llo = 0, Lup = Linf, Nc = 0, pi = 0.2, rho = 0, Hm = 0,
-  Rmax = 1, A0 = 0, Wa = 0.01, fa = 1, q = 0.1)
+ypr_population(
+  tmax = 20L,
+  k = 0.15,
+  Linf = 100,
+  t0 = 0,
+  k2 = 0.15,
+  Linf2 = 100,
+  L2 = 1000,
+  Wb = 3,
+  Ls = 50,
+  Sp = 100,
+  es = 1,
+  Sm = 0,
+  fb = 1,
+  tR = 1L,
+  BH = 1L,
+  Rk = 3,
+  n = 0.2,
+  nL = 0.2,
+  Ln = 1000,
+  Lv = 50,
+  Vp = 100,
+  Llo = 0,
+  Lup = 1000,
+  Nc = 0,
+  pi = 0.2,
+  rho = 0,
+  Hm = 0,
+  Rmax = 1,
+  Wa = 0.01,
+  fa = 1,
+  q = 0.1
+)
 }
 \arguments{
 \item{tmax}{The maximum age (yr).}
 
-\item{k}{The VB growth coefficient (per yr).}
+\item{k}{The VB growth coefficient (yr-1).}
 
 \item{Linf}{The VB mean maximum length (cm).}
 
 \item{t0}{The (theoretical) age at zero length (yr).}
 
+\item{k2}{The VB growth coefficient after length L2 (yr-1).}
+
+\item{Linf2}{The VB mean maximum length after length L2 (cm).}
+
+\item{L2}{The length (or age if negative) at which growth switches from the first to second phase (cm or yr).}
+
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
-\item{Ls}{The length at which 50\% mature (cm).}
+\item{Ls}{The length (or age if negative) at which 50 \% mature (cm or yr).}
 
 \item{Sp}{The maturity (as a function of length) power.}
 
@@ -37,11 +71,13 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Rk}{The lifetime spawners per spawner at low density.}
 
-\item{M}{The instantaneous mortality rate (per yr).}
+\item{n}{The annual interval natural mortality rate from age tR.}
 
-\item{Mb}{The instantaneous mortality rate (as a function of length) scaling exponent.}
+\item{nL}{The annual interval natural mortality rate from length Ln.}
 
-\item{Lv}{The length at which 50\% vulnerable to harvest (cm).}
+\item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).}
+
+\item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest (cm or yr).}
 
 \item{Vp}{The vulnerability to harvest (as a function of length) power.}
 
@@ -59,8 +95,6 @@ ypr_population(tmax = 20L, k = 0.15, Linf = 100, t0 = 0, Wb = 3,
 
 \item{Rmax}{The number of recruits at the carrying capacity (ind).}
 
-\item{A0}{The initial post age tR density independent mortality probability.}
-
 \item{Wa}{The (extrapolated) weight of a 1 cm individual (g).}
 
 \item{fa}{The (theoretical) fecundity of a 1 g female (eggs).}
@@ -77,6 +111,6 @@ Generates an object of class \code{ypr_population}.
 ypr_population(k = 0.1, Linf = 90)
 }
 \seealso{
-\code{\link{ypr_population_update}}, \code{\link{ypr_schedule}},
-\code{\link{ypr_yield}} and \code{\link{ypr_optimize}}.
+\code{\link[=ypr_population_update]{ypr_population_update()}}, \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}},
+\code{\link[=ypr_yield]{ypr_yield()}} and \code{\link[=ypr_optimize]{ypr_optimize()}}.
 }

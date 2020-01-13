@@ -1,108 +1,164 @@
 #' Population Parameters
 #'
-#' Generates an object of class \code{ypr_population}.
+#' Generates an object of class `ypr_population`.
 #'
-#' @param tmax The maximum age (yr).
-#' @param k The VB growth coefficient (per yr).
-#' @param Linf The VB mean maximum length (cm).
-#' @param t0 The (theoretical) age at zero length (yr).
-#' @param Wb The weight (as a function of length) scaling exponent.
-#' @param Ls The length at which 50\% mature (cm).
-#' @param Sp The maturity (as a function of length) power.
-#' @param es The annual probability of a mature fish spawning.
-#' @param Sm The spawning mortality probability.
-#' @param fb The fecundity (as a function of weight) scaling exponent.
-#' @param tR The age from which survival is density-independent (yr).
-#' @param BH Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.
-#' @param Rk The lifetime spawners per spawner at low density.
-#' @param M The instantaneous mortality rate (per yr).
-#' @param Mb The instantaneous mortality rate (as a function of length) scaling exponent.
-#' @param Lv The length at which 50\% vulnerable to harvest (cm).
-#' @param Vp The vulnerability to harvest (as a function of length) power.
-#' @param Llo The lower harvest slot length (cm).
-#' @param Lup The upper harvest slot length (cm).
-#' @param Nc The slot limits non-compliance probability.
-#' @param pi The annual capture probability.
-#' @param rho The release probability.
-#' @param Hm The hooking mortality probability.
-#' @param Rmax The number of recruits at the carrying capacity (ind).
-#' @param A0 The initial post age tR density independent mortality probability.
-#' @param Wa The (extrapolated) weight of a 1 cm individual (g).
-#' @param fa The (theoretical) fecundity of a 1 g female (eggs).
-#' @param q The catchability (annual probability of capture) for a unit of effort.
-#' @return An object of class \code{ypr_population}.
-#' @seealso \code{\link{ypr_population_update}}, \code{\link{ypr_schedule}},
-#' \code{\link{ypr_yield}} and \code{\link{ypr_optimize}}.
+#' @inheritParams params
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population_update()], [ypr_tabulate_schedule()],
+#' [ypr_yield()] and [ypr_optimize()].
 #' @export
 #' @examples
 #' ypr_population(k = 0.1, Linf = 90)
 ypr_population <- function(tmax = 20L, k = 0.15, Linf = 100, t0 = 0,
-                           Wb = 3, Ls = Linf/2, Sp = 100, es = 1, Sm = 0,
+                           k2 = 0.15, Linf2 = 100, L2 = 1000,
+                           Wb = 3, Ls = 50, Sp = 100, es = 1, Sm = 0,
                            fb = 1,
-                           tR = 1L, BH = 1L, Rk = 3, M = 0.2,
-                           Mb = 0,
-                           Lv = Linf/2, Vp = 100,
-                           Llo = 0, Lup = Linf, Nc = 0,
+                           tR = 1L, BH = 1L, Rk = 3, n = 0.2, nL = 0.2,
+                           Ln = 1000,
+                           Lv = 50, Vp = 100,
+                           Llo = 0, Lup = 1000, Nc = 0,
                            pi = 0.2, rho = 0, Hm = 0,
-                           Rmax = 1, A0 = 0, Wa = 0.01, fa = 1,
+                           Rmax = 1, Wa = 0.01, fa = 1,
                            q = 0.1) {
   population <- as.list(environment())
   class(population) <- c("ypr_population")
-  check_population(population)
+  chk_population(population)
+  population
 }
 
 #' Update Population Parameters
 #'
-#' Updates an object of class \code{\link{ypr_population}}.
+#' Updates an object of class [ypr_population()].
 #'
-#' @param population An object of class \code{ypr_population}
-#' @param ... One or more of the arguments from \code{ypr_population()}.
-#' @return An object of class \code{ypr_population}.
-#' @seealso \code{\link{ypr_population}}
+#' @inheritParams params
+#' @param ... One or more of the arguments from `ypr_population()`.
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_population_update(ypr_population(), Rk = 2.5)
 ypr_population_update <- function(population, ...) {
-  check_population(population)
+  chk_population(population)
   parameters <- list(...)
   population[names(parameters)] <- unname(parameters)
-  check_population(population)
+  chk_population(population)
+  population
+}
+
+#' Update Population Parameters
+#'
+#' Updates an object of class [ypr_population()].
+#'
+#' @inheritParams params
+#' @param ... One or more of the arguments from `ypr_population()`.
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population()]
+#' @export
+#' @examples
+#' ypr_populations_update(ypr_populations(Rk = c(2.5, 4)), Rk = 2.5)
+ypr_populations_update <- function(populations, ...) {
+  populations <- lapply(populations, ypr_population_update, ...)
+  class(populations) <- "ypr_populations"
+  names(populations) <- ypr_population_names(populations)
+  populations
+}
+
+#' Expand Populations
+#'
+#' An object of class [ypr_population()] of all unique combinations of parameter values.
+#'
+#' @inheritParams params
+#' @return An object of class `ypr_population`.
+#' @seealso [ypr_population()]
+#' @export
+#' @examples
+#' ypr_populations_expand(ypr_populations(Rk = c(2.5, 4, 2.5), Hm = c(0.1, 0.2, 0.1)))
+ypr_populations_expand <- function(populations) {
+  populations <- as.data.frame(populations)
+  populations <- unique(populations)
+  populations <- as.list(populations)
+  populations <- lapply(populations, function(x) sort(unique(x)))
+  populations <- expand.grid(populations)
+  populations <- unique(populations)
+  as_ypr_populations(populations)
 }
 
 #' Populations
 #'
+#' @inheritParams params
 #' @inheritParams ypr_population_update
 #'
-#' @return A list of \code{\link{ypr_population}} objects
-#' @seealso \code{\link{ypr_population}}
+#' @return A list of [ypr_population()] objects
+#' @seealso [ypr_population()]
 #' @export
 #' @examples
 #' ypr_populations(Rk = c(2.5, 4.6), Hm = c(0.2, 0.05))
-ypr_populations <- function(...) {
+ypr_populations <- function(..., expand = TRUE) {
+  chk_flag(expand)
   population <- ypr_population()
 
   parameters <- list(...)
 
-  if(!length(parameters)) {
+  if (!length(parameters)) {
     populations <- list(population)
     class(populations) <- "ypr_populations"
     return(populations)
   }
-  check_names(parameters, .parameters$Parameter,
-              complete = FALSE, exclusive = TRUE, unique = TRUE,
-              x_name = "...")
+  chk_named(parameters, x_name = "`...`")
+  chk_subset(names(parameters), .parameters$Parameter, x_name = "`names(...)`")
+  chk_unique(names(parameters), x_name = "`names(...)`")
 
-  parameters <- lapply(parameters, function(x) sort(unique(x)))
-
-  parameters <- expand.grid(parameters)
-
+  if (expand) {
+    parameters <- lapply(parameters, function(x) sort(unique(x)))
+    parameters <- expand.grid(parameters)
+  } else {
+    lengths <- vapply(parameters, length, FUN.VALUE = 1L)
+    lengths <- unique(lengths)
+    lengths <- lengths[lengths != 1]
+    if (length(lengths) > 1) {
+      err(
+        "Non-scalar parameter values must all be the same length (not ",
+        cc(sort(lengths), conj = " and ", brac = ""), ")"
+      )
+    }
+    parameters <- as.data.frame(parameters)
+  }
   populations <- list()
-  for(i in seq_len(nrow(parameters))) {
-    population <- as.list(parameters[i,,drop = FALSE])
-    attr(population,"out.attrs") <- NULL
+  for (i in seq_len(nrow(parameters))) {
+    population <- as.list(parameters[i, , drop = FALSE])
+    attr(population, "out.attrs") <- NULL
     populations[[i]] <- do.call("ypr_population", population)
   }
-  names(populations) <- population_names(parameters)
   class(populations) <- "ypr_populations"
+  names(populations) <- ypr_population_names(populations)
   populations
+}
+
+#' Population Names
+#'
+#' @inheritParams params
+#'
+#' @return A character vector of the unique population names.
+#' @export
+#'
+#' @examples
+#' ypr_population_names(ypr_populations(Rk = c(2.5, 3, 2.5), expand = FALSE))
+ypr_population_names <- function(populations) {
+  populations <- as.data.frame(populations)
+  populations <- populations[, vapply(populations, FUN = function(x) length(unique(x)) > 1, TRUE)]
+  if (!ncol(populations)) {
+    return(paste0("Popn_", 1:nrow(populations)))
+  }
+  populations <- as.list(populations)
+  populations <- map(populations, .sub, pattern = "[.]", replacement = "_")
+  populations <- map2(populations, names(populations), function(x, y) paste(y, x, sep = "_"))
+  populations <- transpose(populations)
+  populations <- map(populations, function(x) paste0(unname(unlist(x)), collapse = "_"))
+  names <- unlist(populations)
+  duplicates <- unique(names[duplicated(names)])
+  for (duplicate in duplicates) {
+    bol <- names == duplicate
+    names[bol] <- paste(names[bol], "Popn", 1:sum(bol), sep = "_")
+  }
+  names
 }

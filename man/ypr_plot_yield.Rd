@@ -22,5 +22,5 @@ by the annual interval capture probability.
 ypr_plot_yield(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_yields}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_yields]{ypr_yields()}}
 }

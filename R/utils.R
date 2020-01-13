@@ -1,23 +1,64 @@
-#' Instantaneous to Interval Mortality
-#'
-#' @param x A numeric vector of instantaneous mortality rates.
-#' @return A numeric vector of corresponding interval mortality rates.
-#' @export
-#' @examples
-#' ypr_inst2inter(c(0,0.2,3))
-ypr_inst2inter <- function(x) {
-  check_vector(x, c(0, Inf, NA))
-  1-exp(-x)
+inst2inter <- function(x) {
+  1 - exp(-x)
 }
 
-#' Interval to Instantaneous Mortality
+inter2inst <- function(x) {
+  -log(1 - x)
+}
+
+length_at_age <- function(population, age) {
+  with(population, {
+    if (L2 < 0) L2 <- Linf * (1 - exp(-k * (-L2 - t0)))
+    L <- Linf * (1 - exp(-k * (age - t0)))
+    t2 <- -log(1 - min(L2 / Linf, 1)) / k + t0
+    L[age > t2] <- L2 + (Linf2 - L2) * (1 - exp(-k2 * (age[age > t2] - t2)))
+    L[L < 0] <- 0
+    L
+  })
+}
+
+age_at_length <- function(population, length) {
+  with(population, {
+    if (L2 < 0) L2 <- Linf * (1 - exp(-k * (-L2 - t0)))
+    t <- -log(1 - pmin(length / Linf, 1)) / k + t0
+    t2 <- -log(1 - pmin(L2 / Linf, 1)) / k + t0
+    t[t > t2] <- -log(1 - pmin((length[t > t2] - L2) / (Linf2 - L2), 1)) / k2 + t2
+    t
+  })
+}
+
+#' Length At Age
 #'
-#' @param x A numeric vector of interval mortality rates.
-#' @return A numeric vector of corresponding instantaneous mortality rates.
+#' @inheritParams params
+#'
+#' @return A double vector of the lengths.
 #' @export
+#'
 #' @examples
-#' ypr_inter2inst(c(0,0.5,0.99,1))
-ypr_inter2inst <- function(x) {
-  check_vector(x, c(0, 1, NA))
-  -log(1-x)
+#' ypr_length_at_age(ypr_population(), seq(0, 5, by = 0.5))
+ypr_length_at_age <- function(population, age) {
+  chk_population(population)
+  chk_numeric(age)
+  chk_vector(age)
+  chk_gte(age)
+
+  length_at_age(population, age)
+}
+
+#' Age At Length
+#'
+#' @inheritParams params
+#'
+#' @return A double vector of the lengths.
+#' @export
+#'
+#' @examples
+#' ypr_age_at_length(ypr_population(), seq(0, 100, by = 10))
+ypr_age_at_length <- function(population, length) {
+  chk_population(population)
+  chk_numeric(length)
+  chk_vector(length)
+  chk_gte(length)
+
+  age_at_length(population, length)
 }

@@ -2,14 +2,46 @@
 % Please edit documentation in R/tabulate.R
 \name{ypr_tabulate_yield}
 \alias{ypr_tabulate_yield}
+\alias{ypr_tabulate_yield.ypr_population}
+\alias{ypr_tabulate_yield.ypr_populations}
 \title{Tabulate Yield}
 \usage{
 ypr_tabulate_yield(object, ...)
+
+\method{ypr_tabulate_yield}{ypr_population}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  type = "both",
+  all = FALSE,
+  ...
+)
+
+\method{ypr_tabulate_yield}{ypr_populations}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  type = "both",
+  all = FALSE,
+  ...
+)
 }
 \arguments{
 \item{object}{The populations or populations.}
 
 \item{...}{Unused parameters.}
+
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+
+\item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
+
+\item{all}{A flag specifying whether to include all parameter values.}
 }
 \value{
 A data frame.
@@ -17,9 +49,23 @@ A data frame.
 \description{
 Tabulate Yield
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Tabulate Yield
+
+\item \code{ypr_populations}: Tabulate Yield
+}}
+
 \examples{
 ypr_tabulate_yield(ypr_population())
+ypr_tabulate_yield(ypr_populations(Rk = c(3, 5)))
 }
 \seealso{
-\code{\link{ypr_population}}, \code{\link{ypr_populations}} and \code{\link{ypr_yield}}
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()}
 }
+\concept{tabulate}

@@ -7,13 +7,13 @@
 ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 }
 \value{
 The yield as number of fish or biomass.
@@ -29,5 +29,5 @@ If the yield is given in terms of the biomass (kg) then the scaling also depends
 ypr_yield(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_optimize}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_optimize]{ypr_optimize()}}
 }

@@ -1,6 +1,12 @@
 context("plot")
 
 test_that("ypr_plot_schedule", {
+  pdf(tempfile())
+  teardown(dev.off())
+  expect_silent(plot(ypr_population()))
+})
+
+test_that("ypr_plot_schedule", {
   gp <- ypr_plot_schedule(ypr_population())
   expect_is(gp, "gg")
 })
@@ -10,14 +16,20 @@ test_that("ypr_plot_fish", {
   expect_is(gp, "gg")
 })
 
+test_that("ypr_plot_biomass", {
+  gp <- ypr_plot_biomass(ypr_population())
+  expect_is(gp, "gg")
+})
+
 test_that("ypr_plot_yield", {
-  gp <- ypr_plot_yield(ypr_population(Rk = 10), y = "YPUE",  pi = seq(0, 1, length.out = 10))
+  gp <- ypr_plot_yield(ypr_population(Rk = 10), y = "YPUE", pi = seq(0, 1, length.out = 10))
   expect_is(gp, "gg")
 })
 
 test_that("ypr_plot_yield", {
   gp <- ypr_plot_yield(ypr_populations(Rk = c(2.5, 4.6), Llo = c(0, 60)),
-                 pi = seq(0, 1, length.out = 2), plot_values = FALSE) +
+    pi = seq(0, 1, length.out = 2), plot_values = FALSE
+  ) +
     ggplot2::facet_wrap(~Llo) +
     ggplot2::aes_string(group = "Rk", color = "Rk") +
     ggplot2::scale_color_manual(values = c("black", "blue"))

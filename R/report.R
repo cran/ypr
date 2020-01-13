@@ -12,8 +12,8 @@ lines_population <- function(population) {
   paste0("ypr_population(", population, ")", collapse = "")
 }
 
-lines_head <- function(population, title, date) {
-paste0('---
+lines_head <- function(population, title, description, date) {
+  paste0('---
 title: "', title, '"
 date: "', date, '"
 output: html_document
@@ -27,14 +27,20 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r, echo = TRUE}
+', description, "
+
+```{r}
 library(ypr)
-population <- ', lines_population(population),'
-```')
+population <- ", lines_population(population), "
+```")
 }
 
 lines_body <- function() {
-'```{r}
+  '```{r}
+knitr::kable(ypr_tabulate_parameters(population))
+```
+
+```{r}
 ypr_plot_schedule(population)
 ypr_plot_schedule(population, "Length", "Weight")
 ypr_plot_schedule(population, "Weight", "Fecundity")
@@ -51,8 +57,10 @@ ypr_plot_schedule(population, "Length", "NaturalMortality")
 ```{r}
 ypr_plot_fish(population, color = "white")
 ypr_plot_fish(population, "Length", "Caught")
-ypr_plot_fish(population, "Age", "Spawning", color = "white")
-ypr_plot_fish(population, "Length", "Spawning")
+ypr_plot_fish(population, "Age", "Spawners", color = "white")
+ypr_plot_fish(population, "Length", "Spawners")
+ypr_plot_biomass(population, color = "white")
+ypr_plot_biomass(population, y = "Eggs", color = "white")
 ```
 
 ```{r, fig.width = 6, fig.height = 4}
@@ -71,29 +79,56 @@ knitr::kable(ypr_tabulate_yield(population))
 #'
 #' Creates an Rmd file that can be used to generate a report.
 #'
-#' @inheritParams ypr_schedule
-#' @param title A string of the report title.
-#' @param date A date of the report date.
-#' @param file A string of the file name.
+#' @inheritParams params
 #' @return An invisible character vector of the contents of the file.
 #' @export
 #' @examples
-#' \dontrun{
-#' cat(ypr_report(ypr_population(), file = tempfile()), sep = "\n")
-#' }
+#' ypr_report(ypr_population(), file = tempfile(), ask = FALSE)
 ypr_report <- function(population, title = "Population Report",
+                       description = "",
                        date = Sys.Date(),
-                       file = "report.Rmd") {
-  check_population(population)
-  check_string(title)
-  check_date(date)
-  check_string(file)
+                       file = "report", view = FALSE, ask = TRUE) {
+  chk_population(population)
+  chk_string(title)
+  chk_string(description)
+  chk_date(date)
+  chk_string(file)
+  chk_flag(view)
+  chk_flag(ask)
+
+  if (grepl("[.](R|r)md$", file)) {
+    wrn("File extension on argument `file` is deprecated (please remove).")
+    file <- sub("[.](R|r)md$", "", file)
+  }
+  file <- p0(file, ".Rmd")
+
+  if (!ask_file(file, ask)) {
+    return(invisible(character(0)))
+  }
 
   file.create(file)
   con <- file(file, "w")
-  writeLines(lines_head(population = population, title = title, date = date),
-             con = con)
+  writeLines(lines_head(
+    population = population, title = title,
+    description = description, date = date
+  ),
+  con = con
+  )
   writeLines(lines_body(), con = con)
   close(con)
+  if (view) {
+    if (!requireNamespace("rmarkdown")) {
+      err("Package 'rmarkdown' is required to render the report to html.")
+    }
+    file_html <- p0(sub("[.](R|r)md$", "", file), ".html")
+    if (!ask_file(file_html, ask)) {
+      return(invisible(readLines(file)))
+    }
+    rmarkdown::render(file, output_format = "html_document", quiet = TRUE)
+    if (!requireNamespace("rstudioapi")) {
+      err("Package 'rstudioapi' is required to view the html report.")
+    }
+    rstudioapi::viewer(file_html)
+  }
   invisible(readLines(file))
 }

@@ -4,7 +4,7 @@
 \name{chilliwack_bt_05}
 \alias{chilliwack_bt_05}
 \title{Chilliwack Lake Bull Trout Populations Parameters (2005)}
-\format{An object of class \code{\link{ypr_populations}}.}
+\format{An object of class \code{\link[=ypr_populations]{ypr_populations()}}.}
 \usage{
 chilliwack_bt_05
 }
@@ -18,14 +18,13 @@ yield <- ypr_tabulate_yield(chilliwack_bt_05, type = "optimal")
 yield$pi <- round(yield$pi, 2)
 yield <- yield[c("Llo", "Hm", "Rk", "pi")]
 yield <- tidyr::spread(yield, Rk, pi)
-yield <- yield[order(-yield$Hm),]
+yield <- yield[order(-yield$Hm), ]
 yield
-
 \dontrun{
 ypr_plot_yield(chilliwack_bt_05, plot_values = FALSE) +
-  ggplot2::facet_grid(Rk~Hm) +
+  ggplot2::facet_grid(Rk ~ Hm) +
   ggplot2::aes(group = Llo, linetype = Llo)
- }
+}
 }
 \references{
 Taylor, J.L. 2005. Sustainability of the Chilliwack Lake Char Fishery. Ministry of Water, Land and Air Protection, Surrey, B.C.

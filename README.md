@@ -31,19 +31,11 @@ The key life history parameters are
     the Von Bertalanffy growth curve
   - The length at which 50% mature (`Ls`)
   - The length at which 50% vulnerable to harvest (`Lv`)
-  - The instantaneous annual natural mortality rate (`M`)
+  - The interval annual natural mortality rate (`n`)
   - The lifetime number of spawners per spawner at low density (`Rk`)
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
-
-### Information
-
-For definitions of all 28 population parameters see
-[`?ypr_population`](https://poissonconsulting.github.io/ypr/reference/ypr_population.html).
-
-For an explanation of the calculations see the ypr
-[vignette](https://poissonconsulting.github.io/ypr/articles/ypr.html).
 
 ## Demonstration
 
@@ -58,16 +50,16 @@ ypr_plot_schedule(population, x = "Length", y = "Spawning")
 ![](man/figures/README-unnamed-chunk-1-1.png)<!-- -->
 
 ``` r
-head(ypr_schedule(population))
+head(ypr_tabulate_schedule(population))
 #> # A tibble: 6 x 11
-#>     Age Length Weight Fecundity  Spawning NaturalMortality Vulnerability
-#>   <int>  <dbl>  <dbl>     <dbl>     <dbl>            <dbl>         <dbl>
-#> 1     1   13.9   27.0      27.0  3.13e-56            0.181      3.13e-56
-#> 2     2   25.9  174.      174.   2.91e-29            0.181      2.91e-29
-#> 3     3   36.2  476.      476.   1.04e-14            0.181      1.04e-14
-#> 4     4   45.1  918.      918.   3.46e- 5            0.181      3.46e- 5
-#> 5     5   52.8 1469.     1469.   9.95e- 1            0.181      9.95e- 1
-#> 6     6   59.3 2090.     2090.  10.00e- 1            0.181     10.00e- 1
+#>     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
+#>   <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>         <dbl>
+#> 1     1   13.9   27.0      27.0 3.13e-56            0.200      3.13e-56
+#> 2     2   25.9  174.      174.  2.91e-29            0.200      2.91e-29
+#> 3     3   36.2  476.      476.  1.04e-14            0.200      1.04e-14
+#> 4     4   45.1  918.      918.  3.46e- 5            0.200      3.46e- 5
+#> 5     5   52.8 1469.     1469.  9.95e- 1            0.200      9.95e- 1
+#> 6     6   59.3 2090.     2090.  1.00e+ 0            0.200      1.00e+ 0
 #> # … with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
 #> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
@@ -75,7 +67,6 @@ head(ypr_schedule(population))
 ### Fish
 
 ``` r
-library(ypr)
 ypr_plot_fish(population, color = "white")
 ```
 
@@ -84,14 +75,14 @@ ypr_plot_fish(population, color = "white")
 ``` r
 head(ypr_tabulate_fish(population))
 #> # A tibble: 6 x 7
-#>     Age Surviving Spawning   Caught Harvested Released HandlingMortality
-#>   <dbl>     <dbl>    <dbl>    <dbl>     <dbl>    <dbl>             <dbl>
-#> 1     1      69.3 2.17e-54 4.34e-55  1.73e-55 2.60e-55                 0
-#> 2     2      56.7 1.65e-27 3.30e-28  1.32e-28 1.98e-28                 0
-#> 3     3      46.4 4.84e-13 9.69e-14  3.87e-14 5.81e-14                 0
-#> 4     4      38.0 1.31e- 3 2.63e- 4  1.05e- 4 1.58e- 4                 0
-#> 5     5      31.1 3.10e+ 1 6.19e+ 0  2.48e+ 0 3.72e+ 0                 0
-#> 6     6      23.4 2.34e+ 1 4.69e+ 0  1.88e+ 0 2.81e+ 0                 0
+#>     Age Survivors Spawners   Caught Harvested Released HandlingMortalities
+#>   <dbl>     <dbl>    <dbl>    <dbl>     <dbl>    <dbl>               <dbl>
+#> 1     1      70.1 2.19e-54 4.39e-55  1.76e-55 2.63e-55                   0
+#> 2     2      56.1 1.63e-27 3.26e-28  1.30e-28 1.96e-28                   0
+#> 3     3      44.9 4.68e-13 9.36e-14  3.74e-14 5.62e-14                   0
+#> 4     4      35.9 1.24e- 3 2.48e- 4  9.93e- 5 1.49e- 4                   0
+#> 5     5      28.7 2.86e+ 1 5.72e+ 0  2.29e+ 0 3.43e+ 0                   0
+#> 6     6      21.1 2.11e+ 1 4.23e+ 0  1.69e+ 0 2.54e+ 0                   0
 ```
 
 ### Stock-Recruitment
@@ -107,9 +98,9 @@ ypr_tabulate_sr(population)
 #> # A tibble: 3 x 7
 #>   Type        pi     u    Eggs Recruits Spawners Fecundity
 #>   <chr>    <dbl> <dbl>   <dbl>    <dbl>    <dbl>     <dbl>
-#> 1 unfished 0     0     357733.     80.0    190.      3764.
-#> 2 actual   0.2   0.08  201443.     69.3    125.      3232.
-#> 3 optimal  0.418 0.167 106584.     54.4     76.5     2785.
+#> 1 unfished 0     0     286350.     80      159.      3600.
+#> 2 actual   0.2   0.08  167831.     70.1    108.      3112.
+#> 3 optimal  0.458 0.183  84129.     54.0     63.7     2641.
 ```
 
 ### Yield
@@ -119,8 +110,8 @@ ypr_tabulate_yield(population)
 #> # A tibble: 2 x 8
 #>   Type       pi     u Yield   Age Length Weight Effort
 #>   <chr>   <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl>  <dbl>
-#> 1 actual  0.2   0.08   9.97  7.88   66.5  3232.   2.12
-#> 2 optimal 0.418 0.167 12.8   7.11   63.6  2785.   5.14
+#> 1 actual  0.2   0.08   8.63  7.67   65.8  3112.   2.12
+#> 2 optimal 0.458 0.183 11.7   6.87   62.6  2641.   5.82
 ypr_plot_yield(population)
 ```
 
@@ -130,36 +121,43 @@ ypr_plot_yield(population)
 
 ``` r
 library(ggplot2)
-populations <- ypr_populations(Rk = c(3,7), Ls = c(40, 60), Rmax = 100)
+populations <- ypr_populations(Rk = c(3, 7), Ls = c(40, 60), Rmax = 100)
 ypr_plot_yield(populations, plot_values = FALSE) +
-  facet_grid(Rk~Ls)
+  facet_grid(Rk ~ Ls)
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 ## Installation
 
-To install the latest release version from
-[CRAN](https://cran.r-project.org)
+To install the latest release from [CRAN](https://cran.r-project.org)
 
-    install.packages("ypr")
+``` r
+install.packages("ypr")
+```
 
-To install the latest development version from the Poisson drat
+To install the developmental version from
+[GitHub](https://github.com/poissonconsulting/ypr)
+
+``` r
+# install.packages("remotes")
+remotes::install_github("poissonconsulting/ypr")
+```
+
+To install the latest developmental release from the Poisson drat
 [repository](https://github.com/poissonconsulting/drat)
 
-    if(!"drat" %in% installed.packages()[,1]) 
-      install.packages("drat")
-    drat::addRepo("poissonconsulting")
-    install.packages("ypr")
+``` r
+# install.packages("drat")
+drat::addRepo("poissonconsulting")
+install.packages("ypr")
+```
 
-To install the latest development version from
-[GitHub](https://github.com/poissonconsulting/rpdo)
+## Information
 
-    if(!"devtools" %in% installed.packages()[,1]) 
-      install.packages("devtools")
-    devtools::install_github("poissonconsulting/err")
-    devtools::install_github("poissonconsulting/checkr")
-    devtools::install_github("poissonconsulting/ypr")
+For more information see the [Get
+Started](https://poissonconsulting.github.io/ypr/articles/ypr.html)
+vignette.
 
 ### Interaction
 
@@ -172,9 +170,9 @@ app](man/figures/yield.png)
 
 ## Creditation
 
-Development of ypr was supported by the [Habitat Conservation Trust
-Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and the
-[Ministy of Forests, Lands and Natural Resource
+Development of ypr was partially supported by the [Habitat Conservation
+Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and
+the [Ministry of Forests, Lands and Natural Resource
 Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
 The hex was designed by [The Forest](http://www.theforest.ca).
@@ -188,8 +186,8 @@ Please report any
 always welcome.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CONDUCT.md). By participating in this project you agree to
-abide by its terms
+Conduct](https://github.com/poissonconsulting/ypr/blob/master/CODE_OF_CONDUCT.md).
+By contributing, you agree to abide by its terms.
 
 ## References
 

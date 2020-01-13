@@ -4,9 +4,17 @@
 \alias{ypr_plot_yield.ypr_population}
 \title{Plot Yield by Exploitation/Capture Probability}
 \usage{
-\method{ypr_plot_yield}{ypr_population}(object, y = "Yield",
-  pi = seq(0, 1, length.out = 100), Ly = 0, harvest = TRUE,
-  biomass = FALSE, u = harvest, plot_values = TRUE, ...)
+\method{ypr_plot_yield}{ypr_population}(
+  object,
+  y = "Yield",
+  pi = seq(0, 1, length.out = 100),
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  u = harvest,
+  plot_values = TRUE,
+  ...
+)
 }
 \arguments{
 \item{object}{The populations or populations.}
@@ -15,15 +23,15 @@
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 
-\item{u}{A flag indicating whether to plot the exploitation rate as opposed to the capture rate.}
+\item{u}{A flag specifying whether to plot the exploitation rate as opposed to the capture rate.}
 
-\item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
+\item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
 
 \item{...}{Unused parameters.}
 }
@@ -38,5 +46,5 @@ by the annual interval exploitation/capture probability.
 ypr_plot_yield(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_yields}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_yields]{ypr_yields()}}
 }

@@ -4,19 +4,24 @@
 \alias{ypr_plot_sr}
 \title{Plot Stock-Recruitment Curve}
 \usage{
-ypr_plot_sr(population, Ly = 0, harvest = TRUE, biomass = FALSE,
-  plot_values = TRUE)
+ypr_plot_sr(
+  population,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  plot_values = TRUE
+)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
 
-\item{harvest}{A flag indicating whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
 
-\item{biomass}{A flag indicating whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 
-\item{plot_values}{A flag indicating whether to plot the actual and optimal values.}
+\item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
 }
 \value{
 A ggplot2 object.
@@ -29,5 +34,5 @@ ypr_plot_sr(ypr_population(Rk = 10))
 ypr_plot_sr(ypr_population(Rk = 10, BH = 0L))
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_sr}}
+\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_sr]{ypr_sr()}}
 }

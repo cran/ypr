@@ -1,11 +1,11 @@
 ---
-title: "Yield per Recruit"
+title: "Get Started with ypr"
 author: "Joe Thorley"
 date: "`r Sys.Date()`"
 bibliography: bibliography.bib
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Yield per Recruit}
+  %\VignetteIndexEntry{Get Started with ypr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -25,8 +25,16 @@ That’s it.
 Modelers just use complicated (or not so complicated) math to iron out the details.
 @cooper_guide_2006
 
+Equilibrium based yield per recruit (YPR) methods [@walters_fisheries_2004] estimate the capture rate that optimizes the yield under the assumption that there is no stochasticity and all density-dependence is captured by the stock-recruitment relationship. The remaining population processes of growth, reproduction and death are captured through a series of relatively straight-forward deterministic equations.
 
-Equilibrium based yield per recruit methods [@walters_fisheries_2004] estimate the capture rate that optimizes the yield under the assumption that there is no stochasticity and all density-dependence is captured by the stock-recruitment relationship. The remaining population processes of growth, reproduction and death are captured through a series of relatively straight-forward deterministic equations.
+```{r, echo=FALSE}
+library(ypr)
+nparameters <- length(ypr_population())
+caption <- paste("Table 1. The", nparameters, "parameters with their default values and descriptions.")
+knitr::kable(ypr_tabulate_parameters(ypr_population()),
+  caption = caption
+)
+```
 
 ## Growth
 
@@ -37,9 +45,14 @@ In `ypr` length (in cm) at age ($t$) is assumed to follow a Von Bertalanffy grow
 $$L = L_{\infty} \cdot (1 - \exp(-k \cdot (t-t_0)))$$
 
 ```{r}
-library(ypr)
-population <- ypr_population(Linf = 100, k = 0.2, t0 = 0)
+population <- ypr_population()
 ypr_plot_schedule(population, "Age", "Length")
+```
+
+which can be biphasic
+
+```{r}
+ypr_plot_schedule(ypr_population_update(population, L2 = 75, Linf2 = 200), "Age", "Length")
 ```
 
 ### Weight
@@ -85,15 +98,16 @@ ypr_plot_schedule(population, "Length", "Spawning")
 
 ### Natural Mortality
 
-The annual interval natural mortality rate is assumed to vary by length according to the equation
+By default the natural annual interval mortality rate ($n$) is assumed to be constant
 
-$$ N = 1 - \exp(-M \cdot L^{M_\beta})$$
 ```{r}
-population <- ypr_population_update(population, M = 0.2, Mb = -0.5)
 ypr_plot_schedule(population, "Length", "NaturalMortality")
 ```
 
-where $M$ is the annual instantaneous natural mortality rate.
+although like growth it can vary biphasically
+```{r}
+ypr_plot_schedule(ypr_population_update(population, nL = 0.15, Ln = 60), "Length", "NaturalMortality")
+```
 
 The natural mortality rate can also be affected by spawning mortality
 
@@ -141,7 +155,7 @@ This requires the lifetime number of spawners per spawner at low density ($R_k$)
 
 If recruitment follows a Beverton-Holt ($BH = 1$) curve then
 
-$$R = \alpha \cdot E / (\beta \cdot E + 1)$$
+$$R = \frac{\alpha \cdot E}{(\beta \cdot E + 1)}$$
 
 ```{r}
 population <- ypr_population_update(population, Rk = 3)

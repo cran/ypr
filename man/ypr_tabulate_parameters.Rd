@@ -2,22 +2,30 @@
 % Please edit documentation in R/tabulate.R
 \name{ypr_tabulate_parameters}
 \alias{ypr_tabulate_parameters}
-\title{Population Parameters}
+\title{Tabulate Population Parameters}
 \usage{
 ypr_tabulate_parameters(population)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 }
 \value{
 A table of population parameters
 }
 \description{
-Population Parameters
+Tabulate Population Parameters
 }
 \examples{
 ypr_tabulate_parameters(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}}
+\code{\link[=ypr_detabulate_parameters]{ypr_detabulate_parameters()}}
+
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
+\concept{tabulate}

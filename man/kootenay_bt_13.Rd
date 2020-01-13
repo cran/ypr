@@ -4,7 +4,7 @@
 \name{kootenay_bt_13}
 \alias{kootenay_bt_13}
 \title{Kootenay Lake Bull Trout Population Parameters (2013)}
-\format{An object of class \code{\link{ypr_population}}.}
+\format{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 \usage{
 kootenay_bt_13
 }

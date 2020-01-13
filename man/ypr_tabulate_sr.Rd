@@ -2,22 +2,67 @@
 % Please edit documentation in R/tabulate.R
 \name{ypr_tabulate_sr}
 \alias{ypr_tabulate_sr}
-\title{Stock-Recruitment Parameters}
+\alias{ypr_tabulate_sr.ypr_population}
+\alias{ypr_tabulate_sr.ypr_populations}
+\title{Tabulate Stock-Recruitment Parameters}
 \usage{
 ypr_tabulate_sr(object, ...)
+
+\method{ypr_tabulate_sr}{ypr_population}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  all = FALSE,
+  ...
+)
+
+\method{ypr_tabulate_sr}{ypr_populations}(
+  object,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
+  all = FALSE,
+  ...
+)
 }
 \arguments{
 \item{object}{The populations or populations.}
 
 \item{...}{Unused parameters.}
+
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+
+\item{all}{A flag specifying whether to include all parameter values.}
 }
 \value{
-A table of stock-recruitment parameters.
+A data.frame of stock-recruitment parameters.
 }
 \description{
-Stock-Recruitment Parameters
+Tabulate Stock-Recruitment Parameters
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{ypr_population}: Tabulate Stock-Recruitment Parameters
+
+\item \code{ypr_populations}: Tabulate Stock-Recruitment Parameters
+}}
+
 \examples{
 ypr_tabulate_sr(ypr_population()) # Beverton-Holt
 ypr_tabulate_sr(ypr_population(BH = 0L)) # Ricker
+ypr_tabulate_sr(ypr_populations(Rk = c(2.5, 4.6)))
 }
+\seealso{
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
+}
+\concept{tabulate}

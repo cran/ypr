@@ -2,7 +2,7 @@
 % Please edit documentation in R/tabulate.R
 \name{ypr_detabulate_parameters}
 \alias{ypr_detabulate_parameters}
-\title{Detabulate Parameters}
+\title{Detabulate Population Parameters}
 \usage{
 ypr_detabulate_parameters(x)
 }
@@ -11,14 +11,14 @@ ypr_detabulate_parameters(x)
 one or more parameters and their values.}
 }
 \value{
-An object of class \code{\link{ypr_population}}
+An object of class \code{\link[=ypr_population]{ypr_population()}}
 }
 \description{
-Detabulate Parameters
+Detabulate Population Parameters
 }
 \examples{
 ypr_detabulate_parameters(ypr_tabulate_parameters(ypr_population()))
 }
 \seealso{
-\code{\link{ypr_population}}
+\code{\link[=ypr_tabulate_parameters]{ypr_tabulate_parameters()}}
 }

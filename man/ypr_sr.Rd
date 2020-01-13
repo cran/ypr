@@ -7,7 +7,7 @@
 ypr_sr(population)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 }
 \value{
 A data frame of the SR parameters.
@@ -15,15 +15,15 @@ A data frame of the SR parameters.
 \description{
 Returns a single rowed data frame of the SR parameters:
 \describe{
-  \item{alpha}{Survival from egg to age tR at low density}
-  \item{beta}{Density-dependence}
-  \item{Rk}{Lifetime spawners per spawner at low density}
-  \item{phi}{Lifetime eggs deposited per recruit at unfished equilibrium}
-  \item{phiF}{Lifetime eggs deposited per recruit at the fished equilibrium}
-  \item{R0}{Age tR recruits at the unfished equilibrium}
-  \item{R0F}{Age tR recruits at the fished equilibrium}
-  \item{S0}{Spawners at the unfished equilibrium}
-  \item{S0F}{spawners at the fished equilibrium}
+\item{alpha}{Survival from egg to age tR at low density}
+\item{beta}{Density-dependence}
+\item{Rk}{Lifetime spawners per spawner at low density}
+\item{phi}{Lifetime eggs deposited per recruit at unfished equilibrium}
+\item{phiF}{Lifetime eggs deposited per recruit at the fished equilibrium}
+\item{R0}{Age tR recruits at the unfished equilibrium}
+\item{R0F}{Age tR recruits at the fished equilibrium}
+\item{S0}{Spawners at the unfished equilibrium}
+\item{S0F}{Spawners at the fished equilibrium}
 }
 }
 \examples{

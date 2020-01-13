@@ -2,12 +2,12 @@
 % Please edit documentation in R/tabulate.R
 \name{ypr_tabulate_fish}
 \alias{ypr_tabulate_fish}
-\title{Table Fish}
+\title{Tabulate Fish Numbers}
 \usage{
 ypr_tabulate_fish(population, x = "Age", binwidth = 1L)
 }
 \arguments{
-\item{population}{An object of class \code{\link{ypr_population}}.}
+\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
 \item{x}{A string of the term on the x-axis.}
 
@@ -18,12 +18,18 @@ A data frame
 }
 \description{
 Produces a data frame of the number of fish in the
-'Surviving', 'Spawning', 'Caught', 'Harvested', 'Released' and 'HandlingMortality' categories by
+'Survivors', 'Spawners', 'Caught', 'Harvested', 'Released' and 'HandlingMortalities' categories by
 'Length', 'Age' or 'Weight' class.
 }
 \examples{
 ypr_tabulate_fish(ypr_population())
 }
 \seealso{
-\code{\link{ypr_population}} and \code{\link{ypr_plot_fish}}
+Other tabulate: 
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
 }
+\concept{tabulate}
