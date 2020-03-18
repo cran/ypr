@@ -1,17 +1,28 @@
+# ypr 0.5.0
+
+- Pass yield parameters Ly, harvest and biomass to ypr_report().
+- Removed suggests dependency on checkr.
+
 # ypr 0.4.0
 
 ## Major Features
 
 ## Population Parameters
 
-- Replaced parameters 
-    - `M` (annual instantaneous natural mortality rate)
-    - `Mb` (annual instantaneous natural mortality rate (as a function of length) scaling exponent)
-    - `A0` (initial post age tR density independent mortality probability)
-  with
-    - `n` (annual natural mortality rate from age tR to length Ln)
-    - `nL` (annual natural mortality rate from length Ln)
-    - `Ln` (length at which the natural mortality rate switches from n to nA)
+Replaced parameters 
+
+- `M` (annual instantaneous natural mortality rate)
+- `Mb` (annual instantaneous natural mortality rate (as a function of length) scaling exponent)
+- `A0` (initial post age tR density independent mortality probability)
+
+with
+
+- `n` (annual natural mortality rate from age tR to length Ln)
+- `nL` (annual natural mortality rate from length Ln)
+- `Ln` (length at which the natural mortality rate switches from n to nA)
+
+And
+
 - Added parameters `k2`, `Linf2` and `L2` to allow for biphasic growth.
 - Set `Lp` value to be 1000 as opposed to Linf.
 - Set `Ls` and `Lv` arguments to be 50 as opposed to `Linf/2`.

@@ -6,6 +6,9 @@
 \usage{
 ypr_report(
   population,
+  Ly = 0,
+  harvest = TRUE,
+  biomass = FALSE,
   title = "Population Report",
   description = "",
   date = Sys.Date(),
@@ -16,6 +19,12 @@ ypr_report(
 }
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+
+\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+
+\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
 
 \item{title}{A string of the report title.}
 

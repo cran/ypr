@@ -35,8 +35,8 @@ population <- ", lines_population(population), "
 ```")
 }
 
-lines_body <- function() {
-  '```{r}
+lines_body <- function(Ly, harvest, biomass) {
+  p0('```{r}
 knitr::kable(ypr_tabulate_parameters(population))
 ```
 
@@ -70,9 +70,9 @@ knitr::kable(ypr_tabulate_sr(population))
 ```
 
 ```{r, fig.width = 6, fig.height = 4}
-ypr_plot_yield(population)
-knitr::kable(ypr_tabulate_yield(population))
-```'
+ypr_plot_yield(population, Ly = ', Ly, ", harvest = ", harvest, ", biomass = ", biomass, ")
+knitr::kable(ypr_tabulate_yield(population, Ly = ", Ly, ", harvest = ", harvest, ", biomass = ", biomass, "))
+```")
 }
 
 #' Report
@@ -84,11 +84,19 @@ knitr::kable(ypr_tabulate_yield(population))
 #' @export
 #' @examples
 #' ypr_report(ypr_population(), file = tempfile(), ask = FALSE)
-ypr_report <- function(population, title = "Population Report",
+ypr_report <- function(population,
+                       Ly = 0,
+                       harvest = TRUE,
+                       biomass = FALSE,
+                       title = "Population Report",
                        description = "",
                        date = Sys.Date(),
                        file = "report", view = FALSE, ask = TRUE) {
   chk_population(population)
+  chk_number(Ly)
+  chk_gte(Ly)
+  chk_flag(biomass)
+  chk_flag(harvest)
   chk_string(title)
   chk_string(description)
   chk_date(date)
@@ -114,7 +122,11 @@ ypr_report <- function(population, title = "Population Report",
   ),
   con = con
   )
-  writeLines(lines_body(), con = con)
+  writeLines(lines_body(
+    Ly = Ly,
+    harvest = harvest,
+    biomass = biomass
+  ), con = con)
   close(con)
   if (view) {
     if (!requireNamespace("rmarkdown")) {

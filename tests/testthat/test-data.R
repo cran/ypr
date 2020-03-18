@@ -11,8 +11,8 @@ test_that("data", {
 })
 
 test_that(".data", {
-  expect_identical(
-    checkr::check_data(
+  expect_null(
+    chk::check_data(
       .parameters,
       values = list(
         Parameter = "",
@@ -25,7 +25,6 @@ test_that(".data", {
         Log = c(0L, 1L)
       ),
       key = "Parameter", exclusive = TRUE, order = TRUE
-    ),
-    .parameters
+    )
   )
 })

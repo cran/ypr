@@ -1,9 +1,9 @@
 context("tabulate")
 
 check_tabulated_yield <- function(x, exclusive = TRUE, order = TRUE, x_name = substitute(x)) {
-  x_name <- checkr::chk_deparse(x_name)
+  x_name <- deparse(x_name)
 
-  checkr::check_data(
+  chk::check_data(
     x,
     values = list(
       Type = c("actual", "actual", "optimal"),
@@ -48,7 +48,7 @@ test_that("ypr_tabulate_yield", {
   expect_identical(colnames(yields), c("pi", "u", "Yield", "Age", "Length", "Weight", "Effort"))
   expect_identical(nrow(yields), 10L)
 
-  expect_identical(checkr::check_data(
+  expect_null(chk::check_data(
     yields,
     values = list(
       pi = c(0, 1),
@@ -62,7 +62,7 @@ test_that("ypr_tabulate_yield", {
     nrow = TRUE,
     exclusive = TRUE,
     order = TRUE
-  ), yields)
+  ))
 
   expect_identical(yields$pi[1:2], c(0, 1 / 9))
   expect_equal(yields$Effort[1:2], c(0, 1.117905), tolerance = 1e-07)
@@ -82,7 +82,7 @@ test_that("ypr_tabulate_yield", {
 
   sr <- ypr_tabulate_sr(ypr_population())
 
-  expect_identical(checkr::check_data(
+  expect_null(chk::check_data(
     sr,
     values = list(
       Type = c("unfished", "actual", "optimal"),
@@ -96,7 +96,7 @@ test_that("ypr_tabulate_yield", {
     nrow = TRUE,
     exclusive = TRUE,
     order = TRUE
-  ), sr)
+  ))
 
   expect_identical(sr$Type, c("unfished", "actual", "optimal"))
 
@@ -117,7 +117,7 @@ test_that("ypr_tabulate_yield", {
 
   sr <- ypr_tabulate_sr(ypr_populations(Rk = c(3, 5)))
 
-  expect_identical(checkr::check_data(
+  expect_null(chk::check_data(
     sr,
     values = list(
       Type = c("unfished", "actual", "optimal"),
@@ -132,7 +132,7 @@ test_that("ypr_tabulate_yield", {
     nrow = TRUE,
     exclusive = TRUE,
     order = TRUE
-  ), sr)
+  ))
 
   expect_identical(colnames(sr), c(
     "Type", "pi", "u", "Eggs", "Recruits",
@@ -144,7 +144,7 @@ test_that("ypr_tabulate_yield", {
   parameters <- ypr_tabulate_parameters(ypr_population())
   expect_identical(parameters$Description[1], "The maximum age (yr).")
 
-  expect_identical(checkr::check_data(
+  expect_null(chk::check_data(
     parameters,
     values = list(
       Parameter = ypr:::.parameters$Parameter,
@@ -155,7 +155,7 @@ test_that("ypr_tabulate_yield", {
     order = TRUE,
     nrow = nrow(ypr:::.parameters),
     key = "Parameter"
-  ), parameters)
+  ))
 
 
 
@@ -178,7 +178,7 @@ test_that("ypr_tabulate_yield extinct population", {
 test_that("ypr_tabulate_biomass", {
   biomass <- ypr_tabulate_biomass(ypr_population())
 
-  expect_identical(checkr::check_data(
+  expect_null(chk::check_data(
     biomass,
     values = list(
       Age = c(1L, 100L),
@@ -193,5 +193,5 @@ test_that("ypr_tabulate_biomass", {
     nrow = TRUE,
     exclusive = TRUE,
     order = TRUE
-  ), biomass)
+  ))
 })

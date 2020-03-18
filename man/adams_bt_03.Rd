@@ -4,7 +4,9 @@
 \name{adams_bt_03}
 \alias{adams_bt_03}
 \title{Adams Lake Bull Trout Population Parameters (2003)}
-\format{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\format{
+An object of class \code{\link[=ypr_population]{ypr_population()}}.
+}
 \usage{
 adams_bt_03
 }

@@ -3,7 +3,10 @@
 
 # ypr <img src="man/figures/logo.png" align="right" />
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+<!-- badges: start -->
+
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
 [![AppVeyor build
@@ -15,6 +18,7 @@ MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
 ![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
+<!-- badges: end -->
 
 ## Introduction
 
@@ -191,7 +195,7 @@ By contributing, you agree to abide by its terms.
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-walters_fisheries_2004">
 

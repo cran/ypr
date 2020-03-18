@@ -4,7 +4,9 @@
 \name{quesnel_lt}
 \alias{quesnel_lt}
 \title{Quesnel Lake Lake Trout Population Parameters}
-\format{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\format{
+An object of class \code{\link[=ypr_population]{ypr_population()}}.
+}
 \usage{
 quesnel_lt
 }

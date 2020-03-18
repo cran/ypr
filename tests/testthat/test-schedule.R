@@ -5,7 +5,7 @@ test_that("schedule", {
     Rmax = 100, Rk = 2, Wa = 0.01,
     n = ypr:::inst2inter(0.2), fa = 0.1
   ))
-  expect_identical(checkr::check_data(
+  expect_null(chk::check_data(
     schedule,
     values = list(
       Age = c(0L, 100L),
@@ -21,7 +21,7 @@ test_that("schedule", {
       FishedSurvivorship = c(0, 1)
     ),
     nrow = TRUE, exclusive = TRUE, order = TRUE
-  ), schedule)
+  ))
 
   expect_true(all(diff(schedule$Age) == 1L))
 

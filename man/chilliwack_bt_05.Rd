@@ -4,7 +4,9 @@
 \name{chilliwack_bt_05}
 \alias{chilliwack_bt_05}
 \title{Chilliwack Lake Bull Trout Populations Parameters (2005)}
-\format{An object of class \code{\link[=ypr_populations]{ypr_populations()}}.}
+\format{
+An object of class \code{\link[=ypr_populations]{ypr_populations()}}.
+}
 \usage{
 chilliwack_bt_05
 }
