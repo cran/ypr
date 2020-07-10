@@ -13,10 +13,11 @@ as.data.frame.ypr_populations <- function(x, ...) {
 #' Plot Population Schedule
 #'
 #' @param x The population to plot.
-#' @inheritParams graphics::plot.default
-#' @param ... Additional arguments passed to graphics::plot.formula functions.
+#' @param type A string specifying the plot type.
+#' Possible values include 'b', 'p' and 'l'.
+#' @param ... Additional arguments passed to [graphics::plot] function.
 #' @return An invisible copy of the original object.
-#' @seealso [ypr_population()] and [ypr_tabulate_schedule()]
+#' @seealso [graphics::plot], [ypr_population()] and [ypr_tabulate_schedule()]
 #' @export
 #' @examples
 #' \dontrun{

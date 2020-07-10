@@ -7,17 +7,16 @@
 
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![Travis build
-status](https://travis-ci.org/poissonconsulting/ypr.svg?branch=master)](https://travis-ci.org/poissonconsulting/ypr)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/ypr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/ypr)
+[![R build
+status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
 [![Coverage
 status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr) [![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
 <!-- badges: end -->
 
 ## Introduction
@@ -148,15 +147,6 @@ To install the developmental version from
 remotes::install_github("poissonconsulting/ypr")
 ```
 
-To install the latest developmental release from the Poisson drat
-[repository](https://github.com/poissonconsulting/drat)
-
-``` r
-# install.packages("drat")
-drat::addRepo("poissonconsulting")
-install.packages("ypr")
-```
-
 ## Information
 
 For more information see the [Get
@@ -189,13 +179,15 @@ Please report any
 [Pull requests](https://github.com/poissonconsulting/ypr/pulls) are
 always welcome.
 
-Please note that this project is released with a [Contributor Code of
-Conduct](https://github.com/poissonconsulting/ypr/blob/master/CODE_OF_CONDUCT.md).
-By contributing, you agree to abide by its terms.
+## Code of Conduct
+
+Please note that the ypr project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
 
 ## References
 
-<div id="refs" class="references hanging-indent">
+<div id="refs" class="references">
 
 <div id="ref-walters_fisheries_2004">
 

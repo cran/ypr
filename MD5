@@ -1,10 +1,10 @@
-93d200db3c7a444f81fda0cfe8a84131 *DESCRIPTION
-fdc10d53920da85763ebf066e081432f *LICENSE
+fb48c4f08916e4d38407d5866d15d999 *DESCRIPTION
+5681489d856e788b5885d1042912c4f4 *LICENSE
 6e95ef0c4be8994505cd5e865e5062de *NAMESPACE
-5c3e7d76eeb4f9210435f0a676baf02d *NEWS.md
+c56717d65516ea5cce3b851d49f4c250 *NEWS.md
 4bc49d30ce23b2887b66a81a7a108a0e *R/as-ypr-population.R
 279664bdc36bf252f6c14e73f86c018c *R/as-ypr-populations.R
-99b8502ec9e833c41248f8c818828194 *R/base.R
+0282ca59a6dc92b31b49dd553f708314 *R/base.R
 8c9e25113116d63b4309f2f8ffd7d208 *R/chk-parameters.R
 1751e4a78cea2279b392d4cf453793e4 *R/chk.R
 f2097e063b3661253d9502733343a5c3 *R/data.R
@@ -26,8 +26,8 @@ c238d6ca74393c2daa7becc07110df08 *R/schedule.R
 2356ce73bcd1b5d4255b49afcaf7b6fa *R/yields.R
 b4fe12876c37f8a22cde06e9701eecf0 *R/ypr-package.R
 f2378498bd0b0a5d1b5b3742e909956a *R/zzz.R
-6f9c50d5fdc42460ea73fa4aefb0f1d4 *README.md
-0b46776aa5cc5150e874a321ff2eecc9 *build/vignette.rds
+825382239d7a9d083935a362d2f0bd54 *README.md
+cb39d04dfba178853538fc19621f1874 *build/vignette.rds
 3c31d12eb3e5689bb106b1262d8be524 *data/adams_bt_03.rda
 05e3dcfdd05f88731d4b0697afe982ad *data/chilliwack_bt_05.rda
 eec38ccf4df2912c323131d8aa40a779 *data/kootenay_bt_13.rda
@@ -36,9 +36,10 @@ eec38ccf4df2912c323131d8aa40a779 *data/kootenay_bt_13.rda
 c04cc19819f29b734ec47e2509058de5 *data/quesnel_bt.rda
 9e2902d5f9a5f6889491c85508679676 *data/quesnel_lt.rda
 332a26d0d9731578d1d25165c5882f3f *data/quesnel_rb.rda
+d88e4d1d64211266f161932a54b5a181 *inst/WORDLIST
 2fd33e97639b9a03faf4169b7946bf8c *inst/doc/ypr.R
 443d8a9b98ff7da667c9cb15698e15fb *inst/doc/ypr.Rmd
-e7f7f6ef6c4c7cfde0da54368999b597 *inst/doc/ypr.html
+a48c0133c961cdc7333a4a41c6efcee1 *inst/doc/ypr.html
 48ef2178b8c279cc20b800fac070524a *man/adams_bt_03.Rd
 205c03c3d432e080db374ac994abd258 *man/as_ypr_population.Rd
 d3b743c05a41d9b939df65663b3a55de *man/as_ypr_populations.Rd
@@ -56,7 +57,7 @@ b39596066b9c8339954ca32929e6cdc2 *man/figures/logo.png
 aa8e4318738ffe7fee08de4ddfea9eb1 *man/kootenay_rb.Rd
 e64d9ac88f3cc81b1d8e931967d8aef8 *man/kootenay_rb_13.Rd
 47f5c9739198dcb420e3c841c85cf006 *man/params.Rd
-ea1e61bc3a252b5c8dfc4f5c464fd74a *man/plot.ypr_population.Rd
+9e7ac2418925e70cbf9599d2ecb3d748 *man/plot.ypr_population.Rd
 bf8133a90a310b90e38613f9c7c78b89 *man/quesnel_bt.Rd
 0a7ca0991d6f68e1afa3190767cd0976 *man/quesnel_lt.Rd
 69bbd8da88a9d090eb1c69f0b625d532 *man/quesnel_rb.Rd

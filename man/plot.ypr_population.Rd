@@ -9,17 +9,10 @@
 \arguments{
 \item{x}{The population to plot.}
 
-\item{type}{1-character string giving the type of plot desired.  The
-    following values are possible, for details, see \code{\link[graphics]{plot}}:
-    \code{"p"} for points, \code{"l"} for lines,
-    \code{"b"} for both points and lines,
-    \code{"c"} for empty points joined by lines,
-    \code{"o"} for overplotted points and lines,
-    \code{"s"} and \code{"S"} for stair steps and
-    \code{"h"} for histogram-like vertical lines.  Finally,
-    \code{"n"} does not produce any points or lines.}
+\item{type}{A string specifying the plot type.
+Possible values include 'b', 'p' and 'l'.}
 
-\item{...}{Additional arguments passed to graphics::plot.formula functions.}
+\item{...}{Additional arguments passed to \link[graphics:plot.default]{graphics::plot} function.}
 }
 \value{
 An invisible copy of the original object.
@@ -33,5 +26,5 @@ plot(ypr_population())
 }
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}}
+\link[graphics:plot.default]{graphics::plot}, \code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_tabulate_schedule]{ypr_tabulate_schedule()}}
 }

@@ -1,5 +1,5 @@
 Package: ypr
-Version: 0.5.0
+Version: 0.5.1
 Title: Yield Per Recruit
 Description: An implementation of equilibrium-based yield per recruit methods.
     Yield per recruit methods can used to estimate the optimal yield for a fish population
@@ -20,13 +20,13 @@ Suggests: covr, testthat, knitr, rmarkdown, rstudioapi, tidyr
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1.9000
 VignetteBuilder: knitr
 Language: en-US
 NeedsCompilation: no
-Packaged: 2020-03-18 02:15:37 UTC; joe
+Packaged: 2020-07-10 15:35:24 UTC; joe
 Author: Joe Thorley [aut, cre] (<https://orcid.org/0000-0002-7683-4592>),
   Poisson Consulting [cph, fnd]
 Maintainer: Joe Thorley <joe@poissonconsulting.ca>
 Repository: CRAN
-Date/Publication: 2020-03-18 15:50:03 UTC
+Date/Publication: 2020-07-10 17:10:02 UTC
