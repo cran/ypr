@@ -12,7 +12,7 @@ as_ypr_population(x, ...)
 \arguments{
 \item{x}{The object to coerce.}
 
-\item{...}{Unused.}
+\item{...}{Unused parameters.}
 }
 \description{
 Coerce to a Population Parameter Object

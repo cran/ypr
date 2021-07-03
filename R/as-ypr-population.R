@@ -1,7 +1,6 @@
 #' Coerce to a Population Parameter Object
 #'
-#' @param x The object to coerce.
-#' @param ... Unused.
+#' @inheritParams params
 #' @export
 #'
 #' @examples

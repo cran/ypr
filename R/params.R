@@ -1,4 +1,4 @@
-#' Parameter Descriptions for chk Functions
+#' Parameter Descriptions for ypr Functions
 #' @param tmax The maximum age (yr).
 #' @param k The VB growth coefficient (yr-1).
 #' @param Linf The VB mean maximum length (cm).
@@ -23,7 +23,7 @@
 #' @param Llo The lower harvest slot length (cm).
 #' @param Lup The upper harvest slot length (cm).
 #' @param Nc The slot limits non-compliance probability.
-#' @param pi The annual capture probability.
+#' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @param rho The release probability.
 #' @param Hm The hooking mortality probability.
 #' @param Rmax The number of recruits at the carrying capacity (ind).
@@ -53,6 +53,7 @@
 #' @param description A string describing the population.
 #' @param age A numeric vector of the age (yr).
 #' @param length A numeric vector of the length (cm).
+#' @param x The object to coerce.
 #' @keywords internal
 #' @name params
 NULL

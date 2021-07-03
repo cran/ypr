@@ -1,5 +1,3 @@
-context("yields")
-
 test_that("yields", {
   yields <- ypr_yields(ypr_population())
   expect_identical(length(yields), 100L)

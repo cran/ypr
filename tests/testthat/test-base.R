@@ -1,5 +1,3 @@
-context("base")
-
 test_that("as.data.frame", {
   expect_identical(
     as.data.frame(ypr_population()),

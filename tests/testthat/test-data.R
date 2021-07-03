@@ -1,5 +1,3 @@
-context("data")
-
 test_that("data", {
   expect_identical(chk_population(adams_bt_03), adams_bt_03)
   expect_identical(chk_populations(chilliwack_bt_05), chilliwack_bt_05)
@@ -11,7 +9,7 @@ test_that("data", {
 })
 
 test_that(".data", {
-  expect_null(
+  expect_error(
     chk::check_data(
       .parameters,
       values = list(
@@ -25,6 +23,6 @@ test_that(".data", {
         Log = c(0L, 1L)
       ),
       key = "Parameter", exclusive = TRUE, order = TRUE
-    )
+    ), NA
   )
 })

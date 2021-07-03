@@ -2,7 +2,7 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Parameter Descriptions for chk Functions}
+\title{Parameter Descriptions for ypr Functions}
 \arguments{
 \item{tmax}{The maximum age (yr).}
 
@@ -52,7 +52,7 @@
 
 \item{Nc}{The slot limits non-compliance probability.}
 
-\item{pi}{The annual capture probability.}
+\item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
 \item{rho}{The release probability.}
 
@@ -111,8 +111,10 @@
 \item{age}{A numeric vector of the age (yr).}
 
 \item{length}{A numeric vector of the length (cm).}
+
+\item{x}{The object to coerce.}
 }
 \description{
-Parameter Descriptions for chk Functions
+Parameter Descriptions for ypr Functions
 }
 \keyword{internal}

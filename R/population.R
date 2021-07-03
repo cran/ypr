@@ -3,6 +3,7 @@
 #' Generates an object of class `ypr_population`.
 #'
 #' @inheritParams params
+#' @param pi The annual capture probability.
 #' @return An object of class `ypr_population`.
 #' @seealso [ypr_population_update()], [ypr_tabulate_schedule()],
 #' [ypr_yield()] and [ypr_optimize()].

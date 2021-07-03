@@ -1,5 +1,3 @@
-context("population")
-
 test_that("population", {
   population <- ypr_population()
   expect_identical(chk_population(population), population)

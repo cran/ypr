@@ -29,7 +29,6 @@ ypr_tabulate_yield <- function(object, ...) {
 #' Tabulate Yields
 #'
 #' @inheritParams params
-#' @param pi A vector of probabilities of capture to calculate the yield for.
 #'
 #' @return A data frame.
 #' @family tabulate

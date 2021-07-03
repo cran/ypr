@@ -1,5 +1,3 @@
-context("sr")
-
 test_that("sr", {
   bh <- ypr_sr(ypr_population(n = ypr:::inst2inter(0.2)))
   ri <- ypr_sr(ypr_population(BH = 0L, n = ypr:::inst2inter(0.2)))

@@ -1,5 +1,3 @@
-context("internal")
-
 test_that("quantiles", {
   quantiles <- quantiles(1:10, 0.95)
   expect_identical(names(quantiles), c("estimate", "lower", "upper"))

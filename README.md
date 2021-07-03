@@ -6,17 +6,15 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
-[![R build
-status](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
-[![Coverage
-status](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/github/poissonconsulting/ypr?branch=master)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R-CMD-check](https://github.com/poissonconsulting/ypr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/ypr/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ypr)](https://cran.r-project.org/package=ypr)
-![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr) [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/ypr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/ypr?branch=master)
+![CRAN Downloads](http://cranlogs.r-pkg.org/badges/ypr)
 <!-- badges: end -->
 
 ## Introduction
@@ -30,15 +28,18 @@ large (trophy) individuals.
 
 The key life history parameters are
 
-  - The growth coefficient (`k`) and mean maximum length (`Linf`) from
+-   The growth coefficient (`k`) and mean maximum length (`Linf`) from
     the Von Bertalanffy growth curve
-  - The length at which 50% mature (`Ls`)
-  - The length at which 50% vulnerable to harvest (`Lv`)
-  - The interval annual natural mortality rate (`n`)
-  - The lifetime number of spawners per spawner at low density (`Rk`)
+-   The length at which 50% mature (`Ls`)
+-   The length at which 50% vulnerable to harvest (`Lv`)
+-   The interval annual natural mortality rate (`n`)
+-   The lifetime number of spawners per spawner at low density (`Rk`)
 
 The calculations do not account for stochasticity, predator-prey
 dynamics, angler responses or density-dependent growth.
+
+A shiny app is available at
+<https://poissonconsulting.shinyapps.io/shinyypr/>.
 
 ## Demonstration
 
@@ -57,12 +58,12 @@ head(ypr_tabulate_schedule(population))
 #> # A tibble: 6 x 11
 #>     Age Length Weight Fecundity Spawning NaturalMortality Vulnerability
 #>   <int>  <dbl>  <dbl>     <dbl>    <dbl>            <dbl>         <dbl>
-#> 1     1   13.9   27.0      27.0 3.13e-56            0.200      3.13e-56
-#> 2     2   25.9  174.      174.  2.91e-29            0.200      2.91e-29
-#> 3     3   36.2  476.      476.  1.04e-14            0.200      1.04e-14
-#> 4     4   45.1  918.      918.  3.46e- 5            0.200      3.46e- 5
-#> 5     5   52.8 1469.     1469.  9.95e- 1            0.200      9.95e- 1
-#> 6     6   59.3 2090.     2090.  1.00e+ 0            0.200      1.00e+ 0
+#> 1     1   13.9   27.0      27.0 3.13e-56              0.2      3.13e-56
+#> 2     2   25.9  174.      174.  2.91e-29              0.2      2.91e-29
+#> 3     3   36.2  476.      476.  1.04e-14              0.2      1.04e-14
+#> 4     4   45.1  918.      918.  3.46e- 5              0.2      3.46e- 5
+#> 5     5   52.8 1469.     1469.  9.95e- 1              0.2      9.95e- 1
+#> 6     6   59.3 2090.     2090.  1.00e+ 0              0.2      1.00e+ 0
 #> # … with 4 more variables: Retention <dbl>, FishingMortality <dbl>,
 #> #   Survivorship <dbl>, FishedSurvivorship <dbl>
 ```
@@ -157,7 +158,7 @@ vignette.
 
 To interactively explore the effects of altering individual parameters
 on the schedule, stock-recruitment and yield see the ypr shiny
-[app](https://poissonconsulting.shinyapps.io/ypr-shiny/).
+[app](https://poissonconsulting.shinyapps.io/shinyypr/).
 
 ![A screenshot of the yield from the ypr shiny
 app](man/figures/yield.png)
@@ -169,7 +170,7 @@ Trust Foundation](https://www.poissonconsulting.ca/orgs/hctf.html) and
 the [Ministry of Forests, Lands and Natural Resource
 Operations](https://www.poissonconsulting.ca/orgs/mflnro.html).
 
-The hex was designed by [The Forest](http://www.theforest.ca).
+The hex was designed by [The Forest](https://www.theforest.ca).
 
 ## Contribution
 
@@ -187,9 +188,9 @@ By contributing to this project, you agree to abide by its terms.
 
 ## References
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-walters_fisheries_2004">
+<div id="ref-walters_fisheries_2004" class="csl-entry">
 
 Walters, Carl J., and Steven J. D. Martell. 2004. *Fisheries Ecology and
 Management*. Princeton, N.J: Princeton University Press.

@@ -1,5 +1,3 @@
-context("report")
-
 test_that("report", {
   expect_identical(integer_parameters(), c("tmax", "tR", "BH"))
   report <- ypr_report(ypr_population(), file = tempfile(), ask = FALSE)

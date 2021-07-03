@@ -1,5 +1,3 @@
-context("yield")
-
 test_that("yield", {
   expect_equivalent(ypr_yield(ypr_population(n = ypr:::inst2inter(0.2))), 0.03493376, tolerance = 1e-06)
   expect_equivalent(ypr_yield(ypr_population(n = ypr:::inst2inter(0.2)), harvest = FALSE), 0.03493376, tolerance = 1e-06)

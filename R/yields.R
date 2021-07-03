@@ -3,7 +3,6 @@
 #' Calculates the yield(s) for a population based on one or more capture rates.
 #'
 #' @inheritParams params
-#' @param pi A vector of probabilities of capture to calculate the yield for.
 #' @seealso [ypr_yield()]
 #' @return A numeric vector of the yields.
 #' @export

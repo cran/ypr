@@ -16,7 +16,7 @@ ypr_plot_fish(
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{x}{A string of the term on the x-axis.}
+\item{x}{The object to coerce.}
 
 \item{y}{A string of the term on the y-axis.}
 

@@ -9,7 +9,7 @@ ypr_tabulate_fish(population, x = "Age", binwidth = 1L)
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{x}{A string of the term on the x-axis.}
+\item{x}{The object to coerce.}
 
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
 }

@@ -1,5 +1,3 @@
-context("plot")
-
 test_that("ypr_plot_schedule", {
   pdf(tempfile())
   teardown(dev.off())
