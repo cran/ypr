@@ -20,11 +20,14 @@ ypr_report(
 \arguments{
 \item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
 \item{title}{A string of the report title.}
 
@@ -34,9 +37,11 @@ ypr_report(
 
 \item{file}{A string of the path to the file (without the extension).}
 
-\item{view}{A flag specifying whether to view the report (after rendering it to html).}
+\item{view}{A flag specifying whether to view the report (after rendering it
+to html).}
 
-\item{ask}{A flag specifying whether to ask before overwriting or creating a file.}
+\item{ask}{A flag specifying whether to ask before overwriting or creating a
+file.}
 }
 \value{
 An invisible character vector of the contents of the file.
@@ -45,5 +50,19 @@ An invisible character vector of the contents of the file.
 Creates an Rmd file that can be used to generate a report.
 }
 \examples{
+\dontrun{
 ypr_report(ypr_population(), file = tempfile(), ask = FALSE)
 }
+}
+\seealso{
+Other tabulate: 
+\code{\link{ypr_detabulate_parameters}()},
+\code{\link{ypr_tabulate_biomass}()},
+\code{\link{ypr_tabulate_fish}()},
+\code{\link{ypr_tabulate_parameters}()},
+\code{\link{ypr_tabulate_schedule}()},
+\code{\link{ypr_tabulate_sr}()},
+\code{\link{ypr_tabulate_yields}()},
+\code{\link{ypr_tabulate_yield}()}
+}
+\concept{tabulate}

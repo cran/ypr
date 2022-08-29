@@ -5,26 +5,37 @@
 \alias{ypr_optimise}
 \title{Optimize Capture}
 \usage{
-ypr_optimize(population, Ly = 0, harvest = TRUE, biomass = FALSE)
+ypr_optimize(object, Ly = 0, harvest = TRUE, biomass = FALSE)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 }
 \value{
-The interval annual capture probability (pi) that maximises the yield.
+The interval annual capture probability (pi) that maximises the
+yield.
 }
 \description{
-Finds the interval annual capture probability (pi) that maximises the yield for a given population.
+Finds the interval annual capture probability (pi) that maximises the yield
+for a given population.
 }
 \examples{
 ypr_optimize(ypr_population())
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_yield]{ypr_yield()}}
+Other calculate: 
+\code{\link{ypr_age_at_length}()},
+\code{\link{ypr_exploitation}()},
+\code{\link{ypr_length_at_age}()},
+\code{\link{ypr_yields}()},
+\code{\link{ypr_yield}()}
 }
+\concept{calculate}

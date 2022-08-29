@@ -25,15 +25,17 @@ That’s it.
 Modelers just use complicated (or not so complicated) math to iron out the details.
 @cooper_guide_2006
 
-Equilibrium based yield per recruit (YPR) methods [@walters_fisheries_2004] estimate the capture rate that optimizes the yield under the assumption that there is no stochasticity and all density-dependence is captured by the stock-recruitment relationship. The remaining population processes of growth, reproduction and death are captured through a series of relatively straight-forward deterministic equations.
+Equilibrium based yield per recruit (YPR) methods [@walters_fisheries_2004] estimate the capture rate that optimizes the yield under the assumption that there is no stochasticity and all density-dependence is captured by the stock-recruitment relationship. 
+The remaining population processes of growth, reproduction and death are captured through a series of relatively straight-forward deterministic equations.
 
 ```{r, echo=FALSE}
 library(ypr)
 nparameters <- length(ypr_population())
 caption <- paste("Table 1. The", nparameters, "parameters with their default values and descriptions.")
-knitr::kable(ypr_tabulate_parameters(ypr_population()),
-  caption = caption
-)
+table <- ypr_tabulate_parameters(ypr_population())
+table$Description <- sub("\n", " ", table$Description)
+
+knitr::kable(table, caption = caption)
 ```
 
 ## Growth

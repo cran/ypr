@@ -11,8 +11,7 @@ An object of class \code{\link[=ypr_population]{ypr_population()}}.
 quesnel_rb
 }
 \description{
-The population parameters for
-Rainbow Trout in Quesnel Lake, BC.
+The population parameters for Rainbow Trout in Quesnel Lake, BC.
 }
 \details{
 The estimates are liable to change and should not be used for management.
@@ -21,4 +20,15 @@ The estimates are liable to change and should not be used for management.
 quesnel_rb
 ypr_plot_yield(quesnel_rb)
 }
+\seealso{
+Other data: 
+\code{\link{adams_bt_03}},
+\code{\link{chilliwack_bt_05}},
+\code{\link{kootenay_bt_13}},
+\code{\link{kootenay_rb_13}},
+\code{\link{kootenay_rb}},
+\code{\link{quesnel_bt}},
+\code{\link{quesnel_lt}}
+}
+\concept{data}
 \keyword{datasets}

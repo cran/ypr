@@ -22,16 +22,18 @@ add_parameters <- function(x, object) {
   merge(x, object)
 }
 
-as_tibble <- function(x) {
-  class(x) <- c("tbl_df", "tbl", "data.frame")
-  x
-}
-
 drop_constant_parameters <- function(x) {
-  parameters <- .parameters$Parameter
+  parameters <- parameters()
   parameters <- parameters[parameters != "pi"]
   bol <- vapply(parameters, function(y) length(unique(x[[y]])) == 1, TRUE)
   parameters <- parameters[bol]
+  x[parameters] <- NULL
+  x
+}
+
+drop_all_parameters <- function(x) {
+  parameters <- parameters()
+  parameters <- parameters[parameters != "pi"]
   x[parameters] <- NULL
   x
 }
@@ -49,7 +51,7 @@ sanitize <- function(x) {
 }
 
 tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
-  object$pi <- pi
+  object <- set_par(object, "pi", pi)
   yield <- ypr_tabulate_yield(
     object = object, Ly = Ly,
     harvest = harvest, biomass = biomass,
@@ -60,9 +62,13 @@ tabulate_yield_pi <- function(pi, object, Ly, harvest, biomass, all) {
 }
 
 sum_fish <- function(x) {
+  ecotype <- x$Ecotype[1]
+  x$Ecotype <- NULL
   x[] <- lapply(x, sum)
   x[[1]] <- x[[1]] / nrow(x)
-  x[1, ]
+  x <- x[1, ]
+  x$Ecotype <- ecotype
+  x
 }
 
 .sub <- function(x, pattern, replacement) {

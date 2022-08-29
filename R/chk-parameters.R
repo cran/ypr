@@ -1,4 +1,4 @@
-chk_parameters <- function(tmax, k, Linf, t0, k2, Linf2, L2, Wb, Ls, Sp, es, tR, Rk, BH, fb, n, nL, Ln, Sm, pi, Lv, Vp, Llo, Lup, rho, Hm, Nc, Wa, fa, Rmax, q) {
+check_parameters <- function(tmax, k, Linf, t0, k2, Linf2, L2, Wb, Ls, Sp, es, tR, Rk, BH, fb, n, nL, Ln, Sm, pi, Lv, Vp, Llo, Lup, rho, Hm, Nc, Wa, fa, Rmax, q, RPR) {
   chk_s3_class(tmax, "integer")
   chk_scalar(tmax)
   chk_not_any_na(tmax)
@@ -50,7 +50,7 @@ chk_parameters <- function(tmax, k, Linf, t0, k2, Linf2, L2, Wb, Ls, Sp, es, tR,
   chk_s3_class(Rk, "numeric")
   chk_scalar(Rk)
   chk_not_any_na(Rk)
-  chk_range(Rk, c(1, 100))
+  chk_range(Rk, c(0, 100))
   chk_s3_class(BH, "integer")
   chk_scalar(BH)
   chk_not_any_na(BH)
@@ -123,4 +123,8 @@ chk_parameters <- function(tmax, k, Linf, t0, k2, Linf2, L2, Wb, Ls, Sp, es, tR,
   chk_scalar(q)
   chk_not_any_na(q)
   chk_range(q, c(0, 1))
+  chk_s3_class(RPR, "numeric")
+  chk_scalar(RPR)
+  chk_not_any_na(RPR)
+  chk_range(RPR, c(0, 100))
 }

@@ -6,14 +6,9 @@
 \alias{ypr-package}
 \title{ypr: Yield Per Recruit}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-An implementation of equilibrium-based yield per recruit
-    methods.  Yield per recruit methods can used to estimate the optimal
-    yield for a fish population as described by Walters and Martell (2004)
-    <isbn:0-691-11544-3>.  The yield can be based on the number of fish
-    caught (or harvested) or biomass caught for all fish or just large
-    (trophy) individuals.
+An implementation of equilibrium-based yield per recruit methods. Yield per recruit methods can used to estimate the optimal yield for a fish population as described by Walters and Martell (2004) <isbn:0-691-11544-3>. The yield can be based on the number of fish caught (or harvested) or biomass caught for all fish or just large (trophy) individuals.
 }
 \seealso{
 Useful links:
@@ -28,6 +23,7 @@ Useful links:
 
 Other contributors:
 \itemize{
+  \item Ayla Pearson (\href{https://orcid.org/0000-0001-7388-1222}{ORCID}) [contributor]
   \item Poisson Consulting [copyright holder, funder]
 }
 

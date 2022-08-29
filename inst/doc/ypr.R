@@ -9,9 +9,10 @@ knitr::opts_chunk$set(
 library(ypr)
 nparameters <- length(ypr_population())
 caption <- paste("Table 1. The", nparameters, "parameters with their default values and descriptions.")
-knitr::kable(ypr_tabulate_parameters(ypr_population()),
-  caption = caption
-)
+table <- ypr_tabulate_parameters(ypr_population())
+table$Description <- sub("\n", " ", table$Description)
+
+knitr::kable(table, caption = caption)
 
 ## -----------------------------------------------------------------------------
 population <- ypr_population()

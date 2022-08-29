@@ -5,7 +5,7 @@
 \title{Yields}
 \usage{
 ypr_yields(
-  population,
+  object,
   pi = seq(0, 1, length.out = 100),
   Ly = 0,
   harvest = TRUE,
@@ -13,15 +13,18 @@ ypr_yields(
 )
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 
 \item{pi}{A vector of probabilities of capture to calculate the yield for.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 }
 \value{
 A numeric vector of the yields.
@@ -34,5 +37,17 @@ pi <- seq(0, 1, length.out = 30)
 plot(pi, ypr_yields(ypr_population(), pi), type = "l")
 }
 \seealso{
-\code{\link[=ypr_yield]{ypr_yield()}}
+Other yield: 
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_yield}()}
+
+Other calculate: 
+\code{\link{ypr_age_at_length}()},
+\code{\link{ypr_exploitation}()},
+\code{\link{ypr_length_at_age}()},
+\code{\link{ypr_optimize}()},
+\code{\link{ypr_yield}()}
 }
+\concept{calculate}
+\concept{yield}

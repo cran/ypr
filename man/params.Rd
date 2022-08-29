@@ -16,7 +16,8 @@
 
 \item{Linf2}{The VB mean maximum length after length L2 (cm).}
 
-\item{L2}{The length (or age if negative) at which growth switches from the first to second phase (cm or yr).}
+\item{L2}{The length (or age if negative) at which growth switches from the
+first to second phase (cm or yr).}
 
 \item{Wb}{The weight (as a function of length) scaling exponent.}
 
@@ -34,15 +35,17 @@
 
 \item{BH}{Recruitment follows a Beverton-Holt (1) or Ricker (0) relationship.}
 
-\item{Rk}{The lifetime spawners per spawner at low density.}
+\item{Rk}{The lifetime spawners per spawner at low density (or the egg to tR survival if between 0 and 1).}
 
 \item{n}{The annual interval natural mortality rate from age tR.}
 
 \item{nL}{The annual interval natural mortality rate from length Ln.}
 
-\item{Ln}{The length  (or age if negative) at which the natural mortality rate switches from n to nL (cm or yr).}
+\item{Ln}{The length  (or age if negative) at which the natural mortality
+rate switches from n to nL (cm or yr).}
 
-\item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest (cm or yr).}
+\item{Lv}{The length (or age if negative) at which 50 \% vulnerable to harvest
+(cm or yr).}
 
 \item{Vp}{The vulnerability to harvest (as a function of length) power.}
 
@@ -64,13 +67,18 @@
 
 \item{fa}{The (theoretical) fecundity of a 1 g female (eggs).}
 
-\item{q}{The catchability (annual probability of capture) for a unit of effort.}
+\item{q}{The catchability (annual probability of capture) for a unit of
+effort.}
+
+\item{RPR}{The relative proportion of recruits that are of the ecotype.}
 
 \item{all}{A flag specifying whether to include all parameter values.}
 
-\item{u}{A flag specifying whether to plot the exploitation rate as opposed to the capture rate.}
+\item{u}{A flag specifying whether to plot the exploitation rate as opposed
+to the capture rate.}
 
-\item{percent}{A flag specifying whether to plot the number of fish as a percent or frequency (the default).}
+\item{percent}{A flag specifying whether to plot the number of fish as a
+percent or frequency (the default).}
 
 \item{color}{A string of the color around each bar (or NULL).}
 
@@ -78,13 +86,19 @@
 
 \item{populations}{An object of class \code{\link[=ypr_populations]{ypr_populations()}}.}
 
-\item{plot_values}{A flag specifying whether to plot the actual and optimal values.}
+\item{ecotypes}{An object of class \code{\link[=ypr_ecotypes]{ypr_ecotypes()}}.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{plot_values}{A flag specifying whether to plot the actual and optimal
+values.}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
+
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
 
 \item{title}{A string of the report title.}
 
@@ -94,23 +108,28 @@
 
 \item{binwidth}{A positive integer of the width of the bins for grouping.}
 
-\item{type}{A string indicating whether to include 'both' or just the 'actual' or 'optimal' yield.}
+\item{type}{A string indicating whether to include 'both' or just the
+'actual' or 'optimal' yield.}
 
-\item{object}{The populations or populations.}
+\item{object}{The population or populations.}
 
 \item{...}{Unused parameters.}
 
 \item{expand}{A flag specifying whether to expand parameter combinations.}
 
-\item{view}{A flag specifying whether to view the report (after rendering it to html).}
+\item{view}{A flag specifying whether to view the report (after rendering it
+to html).}
 
-\item{ask}{A flag specifying whether to ask before overwriting or creating a file.}
+\item{ask}{A flag specifying whether to ask before overwriting or creating a
+file.}
 
 \item{description}{A string describing the population.}
 
 \item{age}{A numeric vector of the age (yr).}
 
 \item{length}{A numeric vector of the length (cm).}
+
+\item{names}{A character vector of unique ecotype names.}
 
 \item{x}{The object to coerce.}
 }

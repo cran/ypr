@@ -11,8 +11,8 @@ An object of class \code{\link[=ypr_population]{ypr_population()}}.
 kootenay_rb_13
 }
 \description{
-The population parameters for
-Rainbow Trout in Kootenay Lake from Andrusak and Thorley (2013)
+The population parameters for Rainbow Trout in Kootenay Lake from Andrusak
+and Thorley (2013)
 }
 \details{
 The estimates should not be used for management.
@@ -22,9 +22,21 @@ kootenay_rb_13
 ypr_plot_yield(kootenay_rb_13)
 }
 \references{
-Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria, BC.
+Andrusak, G.F., and Thorley, J.L. 2013. Kootenay Lake
+Exploitation Study: Fishing and Natural Mortality of Large Rainbow Trout
+and Bull Trout: 2013 Annual Report. A Poisson Consulting Ltd. and Redfish
+Consulting Ltd. Report, Habitat Conservation Trust Foundation, Victoria,
+BC.
 }
 \seealso{
-\code{\link[=kootenay_rb]{kootenay_rb()}}
+Other data: 
+\code{\link{adams_bt_03}},
+\code{\link{chilliwack_bt_05}},
+\code{\link{kootenay_bt_13}},
+\code{\link{kootenay_rb}},
+\code{\link{quesnel_bt}},
+\code{\link{quesnel_lt}},
+\code{\link{quesnel_rb}}
 }
+\concept{data}
 \keyword{datasets}

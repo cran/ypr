@@ -3,15 +3,18 @@
 #' Calculates the yield(s) for a population based on one or more capture rates.
 #'
 #' @inheritParams params
-#' @seealso [ypr_yield()]
 #' @return A numeric vector of the yields.
+#' @family yield
+#' @family calculate
 #' @export
 #' @examples
 #' pi <- seq(0, 1, length.out = 30)
 #' plot(pi, ypr_yields(ypr_population(), pi), type = "l")
-ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
-                       Ly = 0, harvest = TRUE, biomass = FALSE) {
-  chk_population(population)
+ypr_yields <- function(object,
+                       pi = seq(0, 1, length.out = 100),
+                       Ly = 0,
+                       harvest = TRUE,
+                       biomass = FALSE) {
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
@@ -23,7 +26,7 @@ ypr_yields <- function(population, pi = seq(0, 1, length.out = 100),
 
   yields <- vapply(pi,
     FUN = yield_pi, FUN.VALUE = 1,
-    population = population, Ly = Ly, harvest = harvest,
+    object = object, Ly = Ly, harvest = harvest,
     biomass = biomass
   )
   sanitize(yields)

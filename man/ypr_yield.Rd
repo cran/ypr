@@ -4,16 +4,21 @@
 \alias{ypr_yield}
 \title{Yield}
 \usage{
-ypr_yield(population, Ly = 0, harvest = TRUE, biomass = FALSE)
+ypr_yield(object, Ly = 0, harvest = TRUE, biomass = FALSE, ...)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 
-\item{Ly}{The minimum length (trophy) fish to consider when calculating the yield (cm).}
+\item{Ly}{The minimum length (trophy) fish to consider when calculating the
+yield (cm).}
 
-\item{harvest}{A flag specifying whether to calculate the yield for harvested fish or captures.}
+\item{harvest}{A flag specifying whether to calculate the yield for harvested
+fish or captures.}
 
-\item{biomass}{A flag specifying whether to calculate the yield in terms of the biomass versus number of individuals.}
+\item{biomass}{A flag specifying whether to calculate the yield in terms of
+the biomass versus number of individuals.}
+
+\item{...}{Unused parameters.}
 }
 \value{
 The yield as number of fish or biomass.
@@ -22,12 +27,26 @@ The yield as number of fish or biomass.
 Calculates the yield for a population.
 }
 \details{
-By default, with \code{Rmax = 1} the number of individuals is the proportion of the recruits at the carrying capacity.
-If the yield is given in terms of the biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
+By default, with \code{Rmax = 1} the number of individuals is the proportion of
+the recruits at the carrying capacity. If the yield is given in terms of the
+biomass (kg) then the scaling also depends on the value of \code{Wa} (g).
 }
 \examples{
 ypr_yield(ypr_population())
+ypr_yield(ypr_ecotypes(Linf = c(100, 200)))
 }
 \seealso{
-\code{\link[=ypr_population]{ypr_population()}} and \code{\link[=ypr_optimize]{ypr_optimize()}}
+Other yield: 
+\code{\link{ypr_plot_yield}()},
+\code{\link{ypr_tabulate_yield}()},
+\code{\link{ypr_yields}()}
+
+Other calculate: 
+\code{\link{ypr_age_at_length}()},
+\code{\link{ypr_exploitation}()},
+\code{\link{ypr_length_at_age}()},
+\code{\link{ypr_optimize}()},
+\code{\link{ypr_yields}()}
 }
+\concept{calculate}
+\concept{yield}

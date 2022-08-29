@@ -20,3 +20,12 @@ Age At Length
 \examples{
 ypr_age_at_length(ypr_population(), seq(0, 100, by = 10))
 }
+\seealso{
+Other calculate: 
+\code{\link{ypr_exploitation}()},
+\code{\link{ypr_length_at_age}()},
+\code{\link{ypr_optimize}()},
+\code{\link{ypr_yields}()},
+\code{\link{ypr_yield}()}
+}
+\concept{calculate}

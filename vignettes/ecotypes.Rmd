@@ -1,0 +1,68 @@
+---
+title: "Ecotypes"
+author: "Joe Thorley and Ayla Pearson"
+date: "`r Sys.Date()`"
+bibliography: bibliography.bib
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Ecotypes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 4
+)
+```
+
+## Ecotypes
+
+In the `ypr` package a population is considered to be group of interbreeding fish that are indistinguishable to anglers. 
+Ecotypes are groups of individuals with a population that have different life-history strategies.
+Consequently, ecotypes must share key fishery (`pi`, `Llo`, `Lup`, `Nc`, `rho`, `Hm` and `q`) and stock recruitment (`BH`, `RK`, `tR` and `Rmax`) parameters.y 
+To use a yield-per-recruit approach it is also necessary to assume that the relative proportion of recruits (`RPR`) adopting each life-history strategy is independent of the size and composition of the parental stock.
+
+## Two Ecotypes
+
+Consider a population with a smaller ecotype and a second larger ecotype that delays maturation in order to achieve sufficient size to switch to piscivory which allows it to grow much larger.
+
+```{r}
+library(ypr)
+library(ggplot2) # for plotting
+
+ecotypes <- ypr_ecotypes(
+  Linf2 = 200,
+  L2 = c(100, 50),
+  Ls = c(50, 75), 
+  pi = 0.05,
+  names = c("small", "large"),
+  RPR = c(0.8, 0.2))
+
+ypr_plot_schedule(ecotypes) + scale_color_manual(values = c("black", "blue"))
+ypr_plot_schedule(ecotypes, x = "Age", y  = "Spawning") + scale_color_manual(values = c("black", "blue"))
+```
+
+### Fish
+
+```{r, fig.width=6, fig.height=4}
+ypr_plot_fish(ecotypes, color = "white") + scale_fill_manual(values = c("black", "blue"))
+ypr_plot_fish(ecotypes, x = "Length", y = "Caught", color = "white", binwidth = 15) + scale_fill_manual(values = c("black", "blue"))
+```
+
+### Stock-Recruitment
+
+```{r, fig.width=6, fig.height=4}
+ypr_plot_sr(ecotypes, biomass = TRUE)
+ypr_tabulate_sr(ecotypes, biomass = TRUE)
+```
+
+### Yield
+
+```{r, fig.width=6, fig.height=4}
+ypr_tabulate_yield(ecotypes, biomass = TRUE)
+ypr_plot_yield(ecotypes, biomass = TRUE)
+```
+

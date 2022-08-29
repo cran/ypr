@@ -4,10 +4,10 @@
 \alias{ypr_sr}
 \title{Stock-Recruitment Parameters}
 \usage{
-ypr_sr(population)
+ypr_sr(object)
 }
 \arguments{
-\item{population}{An object of class \code{\link[=ypr_population]{ypr_population()}}.}
+\item{object}{The population or populations.}
 }
 \value{
 A data frame of the SR parameters.
@@ -30,3 +30,9 @@ Returns a single rowed data frame of the SR parameters:
 ypr_sr(ypr_population()) # Beverton-Holt
 ypr_sr(ypr_population(BH = 0L)) # Ricker
 }
+\seealso{
+Other sr: 
+\code{\link{ypr_plot_sr}()},
+\code{\link{ypr_tabulate_sr}()}
+}
+\concept{sr}

@@ -1,6 +1,6 @@
-optimize <- function(population, Ly, harvest, biomass) {
+optimize <- function(object, Ly, harvest, biomass) {
   stats::optimize(yield_pi, c(0, 1),
-    population = population,
+    object = object,
     Ly = Ly, harvest = harvest, biomass = biomass,
     maximum = TRUE
   )$maximum
@@ -8,25 +8,28 @@ optimize <- function(population, Ly, harvest, biomass) {
 
 #' Optimize Capture
 #'
-#' Finds the interval annual capture probability (pi) that maximises the yield for a given population.
+#' Finds the interval annual capture probability (pi) that maximises the yield
+#' for a given population.
 #'
 #' @inheritParams params
-#' @return The interval annual capture probability (pi) that maximises the yield.
+#' @return The interval annual capture probability (pi) that maximises the
+#'   yield.
+#' @family calculate
 #' @aliases ypr_optimise
-#' @seealso [ypr_population()] and [ypr_yield()]
 #' @export
 #' @examples
 #' ypr_optimize(ypr_population())
-ypr_optimize <- function(population,
-                         Ly = 0, harvest = TRUE, biomass = FALSE) {
-  chk_population(population)
+ypr_optimize <- function(object,
+                         Ly = 0,
+                         harvest = TRUE,
+                         biomass = FALSE) {
   chk_number(Ly)
   chk_gte(Ly)
   chk_flag(biomass)
   chk_flag(harvest)
 
   yield <- optimize(
-    population = population, Ly = Ly,
+    object = object, Ly = Ly,
     harvest = harvest, biomass = biomass
   )
   sanitize(yield)
